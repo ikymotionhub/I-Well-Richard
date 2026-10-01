@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{overflow-x:hidden}
+  img{display:block;max-width:100%}
+  img:not([data-logo]){filter:sepia(0.15) contrast(0.98) saturate(0.85);transition:filter .4s ease}
+  img:not([data-logo]):hover{filter:sepia(0.05) contrast(1.02) saturate(0.95)}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  input,select{font-family:inherit}
+  ::selection{background:rgba(142,130,168,.32)}
+  .iw-scroll::-webkit-scrollbar{display:none}
+  @keyframes iwPulse{0%{transform:translateY(-14px);opacity:0}40%{opacity:1}100%{transform:translateY(46px);opacity:0}}
+  @keyframes iwSwipe{0%,100%{transform:translateX(0);opacity:.55}50%{transform:translateX(10px);opacity:1}}
+  @keyframes iwSpin{to{transform:rotate(360deg)}}
+  @keyframes iwWa{0%{transform:scale(1);opacity:.5}70%{transform:scale(1.7);opacity:0}100%{opacity:0}}
+  @keyframes iwRipple{to{transform:translate(-50%,-50%) scale(1);opacity:0}}
+  @keyframes iwStepIn{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
+  @keyframes iwFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  @keyframes iwFade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @keyframes iwPop{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:none}}
+  @keyframes iwPulseCard{0%{box-shadow:0 34px 80px -34px rgba(60,48,20,.5),0 0 0 0 color-mix(in srgb,var(--brand) 55%,transparent)}55%{box-shadow:0 34px 80px -34px rgba(60,48,20,.5),0 0 0 8px color-mix(in srgb,var(--brand) 0%,transparent)}100%{box-shadow:0 34px 80px -34px rgba(60,48,20,.5)}}
+  @keyframes iwPulseRing{0%{box-shadow:0 0 0 0 rgba(94,110,76,.4)}70%{box-shadow:0 0 0 10px rgba(94,110,76,0)}100%{box-shadow:0 0 0 0 rgba(94,110,76,0)}}
+  @keyframes iwGoldRing{0%,100%{box-shadow:inset 0 0 0 1px rgba(230,193,105,.2)}50%{box-shadow:inset 0 0 0 1px rgba(230,193,105,.6),0 0 30px -6px rgba(230,193,105,.35)}}
+  .iw-cta{position:relative;overflow:hidden;transition:transform .32s cubic-bezier(.34,1.56,.64,1),box-shadow .32s,filter .32s;will-change:transform}
+  .iw-cta:hover{transform:translateY(-3px) scale(1.025);filter:brightness(1.05)}
+  [data-revcard]:hover{transform:translateY(-6px);box-shadow:0 34px 66px -30px rgba(60,48,20,.6)}
+  .iw-cta:active{transform:translateY(-1px) scale(.98)}
+  .iw-cta::after{content:"";position:absolute;top:-10%;left:-135%;width:55%;height:120%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-16deg);pointer-events:none}
+  .iw-cta:hover::after{animation:iwShine .9s ease}
+  @keyframes iwShine{to{left:145%}}
+  .iw-cta-pulse{animation:iwCtaPulse 3s ease-in-out infinite}
+  @keyframes iwCtaPulse{0%,100%{box-shadow:0 16px 40px -16px rgba(198,152,47,.5);transform:translateY(0)}50%{box-shadow:0 20px 50px -14px rgba(198,152,47,.8);transform:translateY(-2px)}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important}}
+</style>
+</helmet>
+
+<div data-root="" style="background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,sans-serif;font-weight:400;font-size:17px;line-height:1.7;min-height:100vh;--bg:#F5F0E6;--bg2:#ECE4D5;--surface:#FFFDF8;--surface2:#F2EBDD;--ink:#33302A;--ink2:#665F52;--ink3:#9A9081;--brand:#5E6E4C;--lav:#B0794C;--lav2:#D8B78A;--sage:#6E8A63;--sage2:#A7C09B;--line:rgba(51,48,42,.12);--line2:rgba(51,48,42,.06);--headerbg:rgba(245,240,230,.82);--shadow:0 20px 50px -22px rgba(51,45,32,.28);--gold:#C6982F;transition:background .5s ease,color .5s ease">
+
+  <!-- ============ HEADER ============ -->
+  <header data-hdr="" style="position:fixed;top:0;left:0;right:0;z-index:90;padding:16px 0;transition:padding .35s ease,background .35s ease,border-color .35s ease,box-shadow .35s ease;border-bottom:1px solid transparent">
+    <div style="width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,44px);display:flex;align-items:center;justify-content:space-between;gap:20px">
+      <a href="#top" style="display:flex;align-items:center;flex-shrink:0">
+        <img data-logo="" src="assets/logo-iwell-transparent.png" alt="I-WELL — The Life You Deserve" style="height:46px;width:auto;object-fit:contain">
+      </a>
+      <nav data-desknav="" style="display:flex;gap:34px;align-items:center">
+        <a href="#what" data-i18n="nav_what" style="font-size:13px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink2);font-weight:500;transition:color .25s">What is I-Well</a>
+        <a href="#benefits" data-i18n="nav_benefits" style="font-size:13px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink2);font-weight:500;transition:color .25s">Benefits</a>
+        <a href="#stay" data-i18n="nav_stay" style="font-size:13px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink2);font-weight:500;transition:color .25s">Accommodation</a>
+        <a href="#reviews" data-i18n="nav_reviews" style="font-size:13px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink2);font-weight:500;transition:color .25s">Reviews</a>
+        <a href="#location" data-i18n="nav_location" style="font-size:13px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink2);font-weight:500;transition:color .25s">Location</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:12px;flex-shrink:0">
+        <div style="display:inline-flex;border:1px solid var(--line);border-radius:100px;overflow:hidden;background:var(--surface2)">
+          <button data-lang-btn="en" onClick="{{ setEn }}" style="font-size:11.5px;font-weight:600;letter-spacing:.05em;padding:7px 12px;color:#fff;background:var(--brand);transition:all .3s">EN</button>
+          <button data-lang-btn="es" onClick="{{ setEs }}" style="font-size:11.5px;font-weight:600;letter-spacing:.05em;padding:7px 12px;color:var(--ink2);background:transparent;transition:all .3s">ES</button>
+        </div>
+        <button onClick="{{ toggleTheme }}" aria-label="Toggle theme" style="width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;background:var(--surface2);color:var(--brand);transition:all .3s">
+          <span data-theme-ico="" style="display:grid;place-items:center">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"></path></svg>
+          </span>
+        </button>
+        <button onClick="{{ openResv }}" data-i18n="nav_book" style="display:none;padding:11px 22px;border-radius:100px;background:var(--brand);color:#F6F2EC;font-size:13px;font-weight:600;letter-spacing:.04em;transition:all .3s;box-shadow:var(--shadow)" data-bookbtn="">Check availability</button>
+        <button onClick="{{ toggleMenu }}" data-menubtn="" style="width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:none;place-items:center;background:var(--surface2);color:var(--brand)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div data-mobilenav="" style="display:none;overflow:hidden;max-height:0;transition:max-height .4s ease">
+      <div style="max-width:1240px;margin:12px auto 0;padding:14px clamp(20px,4vw,44px) 6px;display:flex;flex-direction:column;gap:2px;background:var(--surface);border-top:1px solid var(--line)">
+        <a href="#what" onClick="{{ closeMenu }}" data-i18n="nav_what" style="padding:13px 4px;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line2)">What is I-Well</a>
+        <a href="#benefits" onClick="{{ closeMenu }}" data-i18n="nav_benefits" style="padding:13px 4px;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line2)">Benefits</a>
+        <a href="#stay" onClick="{{ closeMenu }}" data-i18n="nav_stay" style="padding:13px 4px;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line2)">Accommodation</a>
+        <a href="#reviews" onClick="{{ closeMenu }}" data-i18n="nav_reviews" style="padding:13px 4px;font-size:15px;color:var(--ink);border-bottom:1px solid var(--line2)">Reviews</a>
+        <a href="#location" onClick="{{ closeMenu }}" data-i18n="nav_location" style="padding:13px 4px;font-size:15px;color:var(--ink)">Location</a>
+        <button onClick="{{ openResv }}" data-i18n="nav_book" style="margin:14px 0 6px;padding:15px;border-radius:100px;background:var(--brand);color:#F6F2EC;font-size:14px;font-weight:600">Check availability</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section id="top" style="position: relative; min-height: 100svh; display: flex; align-items: center; overflow: hidden">
+    <img src="assets/img/hero-bg.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 50%">
+    <div data-herotint="" style="position: absolute; inset: 0; background: linear-gradient(180deg, #252525CE, #212121AD, #0D0D0DD1, #040404C3)"></div>
+    <div style="position: relative; z-index: 3; width: 100%; max-width: 1240px; margin: 0 auto; padding: 120px clamp(20px,4vw,44px) 90px; text-align: center; background-color: #00000000">
+      <div style="display:inline-flex;align-items:center;gap:10px;padding:8px 18px;border-radius:100px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(6px);margin-bottom:26px">
+        <span style="color:var(--gold);letter-spacing:2px;font-size:13px">★★★★★</span>
+        <span style="color:#fff;font-size:12.5px;font-weight:500;letter-spacing:.04em"><strong style="font-weight:700">5.0</strong> · <span data-i18n="hero_reviews">702 Google reviews</span></span>
+      </div>
+      <h1 style="font-family:'Cormorant',Georgia,serif;font-weight:500;color:#fff;font-size:clamp(46px,8vw,104px);line-height:1.0;letter-spacing:-.015em;text-shadow:0 6px 40px rgba(0,0,0,.4);margin:0 auto;max-width:15ch">
+        <span data-i18n="hero_t1">The life</span> <span data-i18n="hero_t2" style="font-style:italic;color:var(--lav2)">you deserve</span>
+      </h1>
+      <p data-i18n="hero_sub" style="font-family:'Cormorant',serif;font-weight:400;font-size:clamp(20px,2.7vw,30px);line-height:1.42;color:rgba(255,255,255,.9);max-width:640px;margin:26px auto 0">A joyful, profound, and transformative experience for your life, health, and holistic well-being—all set in an oasis in Cali, one of Latin America’s most cheerful and welcoming cities.</p>
+      <div data-bookbar="" style="max-width:820px;margin:34px auto 0;background:rgba(20,17,10,.5);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(14px);border-radius:20px;padding:12px;display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;box-shadow:0 26px 60px -24px rgba(0,0,0,.6)">
+        <button data-bar-dates="" style="flex:1;min-width:120px;text-align:left;background:rgba(255,255,255,.08);border:none;cursor:pointer;padding:12px 16px;border-radius:13px;color:#fff">
+          <span style="display:block;font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--lav2)" data-i18n="bar_in">CHECK-IN</span>
+          <span data-bar-in="" style="display:block;margin-top:4px;font-size:15px;font-weight:600;color:#f4efe4" data-i18n="bar_add">Add date</span>
+        </button>
+        <button data-bar-dates="" style="flex:1;min-width:120px;text-align:left;background:rgba(255,255,255,.03);border:none;cursor:pointer;padding:12px 16px;border-radius:13px;color:#fff">
+          <span style="display:block;font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--lav2)" data-i18n="bar_out">CHECK-OUT</span>
+          <span data-bar-out="" style="display:block;margin-top:4px;font-size:15px;font-weight:600;color:#f4efe4" data-i18n="bar_add">Add date</span>
+        </button>
+        <button data-bar-guests="" style="flex:1;min-width:120px;text-align:left;background:rgba(255,255,255,.03);border:none;cursor:pointer;padding:12px 16px;border-radius:13px;color:#fff">
+          <span style="display:block;font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--lav2)" data-i18n="bar_guests">GUESTS</span>
+          <span data-bar-g="" style="display:block;margin-top:4px;font-size:15px;font-weight:600;color:#f4efe4">1 guest</span>
+        </button>
+        <button data-bar-go="" style="flex:none;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:0 24px;min-height:58px;border-radius:14px;border:none;cursor:pointer;background:linear-gradient(135deg,var(--lav2),var(--gold));color:#2A2413;font-size:15px;font-weight:700;box-shadow:0 12px 30px -8px rgba(198,152,47,.55)">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg>
+          <span data-i18n="bar_go">Check availability</span>
+        </button>
+      </div><p data-i18n="bar_hint" style="margin-top:14px;color:var(--lav2);font-size:13px;font-weight:600">Tap to choose your dates — first check-in, then check-out</p><div style="display:flex;gap:15px;justify-content:center;margin-top:40px;flex-wrap:wrap">
+        
+        
+      </div><a href="#what" data-i18n="hero_cta2" style="padding:17px 34px;border-radius:100px;border:1px solid rgba(255,255,255,.5);color:#fff;font-size:14.5px;font-weight:600;letter-spacing:.03em;backdrop-filter:blur(4px);transition:background .3s">Discover I-Well</a>
+      
+      
+    <div style="position: absolute; left: 620px; transform: translateX(-50%); z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 9px; color: rgba(255,255,255,.75); top: 688px">
+      <span data-i18n="hero_scroll" style="font-size:10px;letter-spacing:.28em;text-transform:uppercase">Scroll</span>
+      <span style="width:1px;height:44px;background:linear-gradient(rgba(255,255,255,.7),transparent);position:relative;overflow:hidden;display:block"><span style="position:absolute;top:0;left:0;width:100%;height:12px;background:#fff;animation:iwPulse 2.1s cubic-bezier(.22,.61,.36,1) infinite;display:block"></span></span>
+    </div></div>
+    
+  </section>
+
+  <!-- ============ ACCOMMODATION (featured, open assignment) ============ -->
+  <section id="what" style="padding:clamp(72px,9vw,120px) 0;scroll-margin-top:80px;background:var(--bg)">
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,44px);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(40px,6vw,80px);align-items:center">
+      <div data-reveal="" style="opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1)">
+        <span data-eyebrow="" style="display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--lav);font-weight:600"><span style="width:28px;height:1px;background:var(--lav)"></span><span data-i18n="what_eyebrow">Our philosophy</span></span>
+        <h2 style="font-family:'Cormorant',serif;font-weight:500;font-size:clamp(32px,4.4vw,54px);line-height:1.08;letter-spacing:-.01em;margin:16px 0 0;color:var(--ink)"><span data-i18n="what_title">More than a stay,</span> <span data-i18n="what_title2" style="font-style:italic;color:var(--lav)">A way to live.</span></h2>
+        <div data-i18n="what_p1" style="color:var(--ink2);font-size:16px;line-height:1.6;margin-top:22px">
+          <ul style="margin-left:20px;display:flex;flex-direction:column;gap:12px">
+            <li><strong>Save money</strong> while staying in a comfortable, safe, and eco-friendly environment.</li>
+            <li><strong>Nutritious eating</strong>, learning, and better physical and mental habits.</li>
+            <li><strong>Improve your health</strong>, cultivating and/or reclaiming your youth and longevity.</li>
+            <li>Access to an <strong>excellent team of professionals</strong> in physical and mental wellness.</li>
+          </ul>
+        </div>
+        <p data-i18n="what_p2" style="color:var(--ink2);font-size:17px;line-height:1.8;margin-top:20px">It's a radical, life-changing experience — a program combining physical and mental well-being, healthy habits, and a deep connection with yourself.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:26px;margin-top:30px">
+          <div><div style="font-family:'Cormorant',serif;font-size:42px;color:var(--brand);line-height:1">20+</div><div data-i18n="what_s1" style="font-size:13px;color:var(--ink3);letter-spacing:.04em">Years of tradition</div></div>
+          <div><div style="font-family:'Cormorant',serif;font-size:42px;color:var(--brand);line-height:1">702</div><div data-i18n="what_s2" style="font-size:13px;color:var(--ink3);letter-spacing:.04em">5-star reviews</div></div>
+          <div><div style="font-family:'Cormorant',serif;font-size:42px;color:var(--brand);line-height:1">3+</div><div data-i18n="what_s3" style="font-size:13px;color:var(--ink3);letter-spacing:.04em">Nights, your way</div></div>
+        </div>
+      </div>
+      <div style="position:relative;max-width:440px;margin-left:auto;margin-right:auto;width:100%">
+        <div style="border-radius:24px;overflow:hidden;box-shadow:0 30px 70px -20px rgba(0,0,0,.3);border:1px solid var(--line);aspect-ratio:1/1;position:relative;background:var(--surface)">
+          <img src="assets/img/mindmap-final.jpg?v=14" alt="Mind map of wellness services" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+      </div>
+    </div>
+  </section><section id="stay" style="position:relative;padding:clamp(72px,9vw,120px) 0;scroll-margin-top:80px;background:linear-gradient(165deg,var(--bg2),var(--bg));overflow:hidden">
+    <div style="position:absolute;inset:0;background:radial-gradient(52% 60% at 88% 12%,rgba(198,152,47,.14),transparent 60%),radial-gradient(46% 50% at 6% 96%,rgba(110,138,99,.12),transparent 62%);pointer-events:none"></div>
+    <div style="position:relative;max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,44px)">
+      <div data-reveal="" data-stayfeat="" style="opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(30px,5vw,64px);align-items:center">
+        <div style="position:relative;border-radius:26px;overflow:hidden;box-shadow:0 36px 70px -26px rgba(70,55,25,.55);aspect-ratio:4/5">
+          <div data-staytrack="" style="display:flex;height:100%;transition:transform .6s cubic-bezier(.6,.05,.2,1)">
+            <img src="assets/img/alojamiento/akash-1.jpg" alt="Alojamiento" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover">
+            <img src="assets/img/alojamiento/ashtasia-1.png" alt="Alojamiento" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover">
+            <img src="assets/img/alojamiento/ixchel-1.jpg" alt="Alojamiento" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover">
+            <img src="assets/img/alojamiento/ixchel-2.jpg" alt="Alojamiento" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover">
+            <img src="assets/img/alojamiento/kashlem-1.jpg" alt="Alojamiento" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover">
+            <img src="assets/img/alojamiento/kashlem-2.jpg" alt="Alojamiento" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover">
+            <img src="assets/img/alojamiento/kashlem-3.jpg" alt="Alojamiento" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover">
+            <img src="assets/img/alojamiento/maltiox-1.jpg" alt="Alojamiento" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover">
+            <img src="assets/img/alojamiento/maltiox-2.jpg" alt="Alojamiento" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover">
+            <img src="assets/img/alojamiento/maltiox-3.jpg" alt="Alojamiento" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover">
+            <img src="assets/img/alojamiento/moksha-1.jpg" alt="Alojamiento" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover">
+            <img src="assets/img/alojamiento/moksha-2.jpg" alt="Alojamiento" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover">
+            <img src="assets/img/alojamiento/moksha-4.jpg" alt="Alojamiento" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover">
+            <img src="assets/img/alojamiento/shamabala-1.jpg" alt="Alojamiento" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover">
+            <img src="assets/img/alojamiento/shambala-2.jpg" alt="Alojamiento" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover">
+            <img src="assets/img/alojamiento/shambala-4.jpg" alt="Alojamiento" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover">
+          </div>
+          <span style="position:absolute;top:16px;left:16px;padding:7px 14px;border-radius:100px;background:rgba(30,26,15,.8);backdrop-filter:blur(6px);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lav2)" data-i18n="stay_badge">Featured stay</span>
+          <div data-staydots="" style="position:absolute;bottom:16px;left:0;right:0;display:flex;gap:7px;justify-content:center"></div>
+        </div>
+        <div>
+          <div style="display:flex;align-items:center;gap:12px"><span style="width:34px;height:1px;background:var(--lav)"></span><span style="font-size:12px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--lav)" data-i18n="stay_eyebrow">Where you'll stay</span></div>
+          <h2 style="margin-top:16px;font-family:'Cormorant',serif;font-weight:500;font-size:clamp(34px,4.6vw,58px);line-height:1.0;color:var(--ink)"><span data-i18n="stay_title">Your room,</span><br><span data-i18n="stay_title2" style="font-style:italic;color:var(--lav)">chosen for you.</span></h2>
+          <p style="margin-top:18px;color:var(--ink2);font-size:17px;line-height:1.6;max-width:480px" data-i18n="stay_sub">We have several private rooms across the garden — bright, calm and fully equipped. Pick your dates and we'll assign the best available one for your stay.</p>
+          <div style="margin-top:26px;border-top:1px solid var(--line)">
+            <div style="display:flex;gap:16px;padding:15px 0;border-bottom:1px solid var(--line)"><span style="flex:0 0 92px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lav);padding-top:2px" data-i18n="stay_inc_l">Includes</span><span style="flex:1;font-size:15px;font-weight:500;color:var(--ink)" data-i18n="stay_inc_v">Breakfast, lunch, and 3 daily classes (Yoga · Feldenkrais Method · Breathwork · Pilates)</span></div>
+            <div style="display:flex;gap:16px;padding:15px 0;border-bottom:1px solid var(--line)"><span style="flex:0 0 92px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lav);padding-top:2px" data-i18n="stay_stay_l">Stay</span><span style="flex:1;font-size:15px;font-weight:500;color:var(--ink)" data-i18n="stay_stay_v">3-night minimum</span></div>
+            <div style="display:flex;gap:16px;padding:15px 0"><span style="flex:0 0 92px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lav);padding-top:2px" data-i18n="stay_pet_l">Pet</span><span style="flex:1;font-size:15px;font-weight:500;color:var(--ink)" data-i18n="stay_pet_v">Pet friendly · no restrictions</span></div>
+          </div>
+          <div style="margin-top:24px;display:flex;align-items:flex-end;gap:6px"><span style="font-size:19px;color:var(--brand);align-self:flex-start;margin-top:8px">$</span><span style="font-family:'Cormorant',serif;font-weight:600;font-size:52px;line-height:.9;color:var(--ink)">295.000</span><span style="font-size:14px;color:var(--ink3);margin-bottom:6px" data-i18n="stay_price_note">/ night</span></div>
+          <button onClick="{{ openResv }}" data-i18n="stay_cta" class="iw-cta" style="margin-top:26px;display:inline-flex;align-items:center;gap:10px;height:58px;padding:0 34px;border-radius:100px;background:#20180F;color:#F4E9D6;font-size:15px;font-weight:600;box-shadow:0 18px 44px -16px rgba(32,24,15,.7)">Check availability →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESERVE POPUP (Book Online wizard) ============ -->
+  <div data-resv="" style="position: fixed; inset: 0; z-index: 220; display: none">
+    <div data-wzclose="" style="position:absolute;inset:0;background:rgba(22,19,12,.68);backdrop-filter:blur(7px)"></div>
+    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:16px;overflow-y:auto">
+      <div data-wzmodal="" style="position:relative;width:100%;max-width:960px;margin:auto;background:linear-gradient(135deg, var(--surface) 0%, color-mix(in srgb, var(--surface) 96%, var(--brand) 4%) 100%);border:1px solid color-mix(in srgb, var(--brand) 25%, var(--line));border-radius:24px;box-shadow:0 50px 120px -30px rgba(20,16,10,.7);animation:iwPop .45s cubic-bezier(.22,.61,.36,1);overflow:hidden">
+        <div style="position:absolute;inset:0;background:radial-gradient(48% 55% at 82% 4%,rgba(198,152,47,.18),transparent 60%),radial-gradient(46% 52% at 2% 100%,rgba(110,138,99,.15),transparent 62%);pointer-events:none"></div>
+        <button data-wzclose="" aria-label="Close" style="position:absolute;top:14px;right:14px;z-index:6;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center;color:var(--ink2)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+        <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:clamp(22px,3vw,44px);padding:clamp(26px,3.4vw,42px)">
+          <div>
+            <div style="display:flex;align-items:center;gap:12px"><span style="width:34px;height:1px;background:var(--lav)"></span><span style="font-size:12px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--lav)" data-i18n="rsv_eyebrow">Check availability online</span></div>
+            <h2 style="margin-top:14px;font-family:'Cormorant',serif;font-weight:500;font-size:clamp(30px,3.6vw,44px);line-height:1.02;color:var(--ink)" data-i18n="rsv_title">Check availability for your dates</h2>
+            <p style="margin-top:14px;color:var(--ink2);font-size:15.5px;line-height:1.6;max-width:440px" data-i18n="rsv_sub">Fill in your details to check availability. We will contact you via WhatsApp with the best options and possible discounts for your dates. The deposit to confirm is only 10% and the rest is paid upon arrival!</p>
+            <div data-wzsteps="" style="margin-top:26px;display:flex;flex-direction:column;gap:8px"></div>
+            <div style="margin-top:24px;padding:clamp(16px,4vw,24px);border-radius:18px;background:linear-gradient(135deg, color-mix(in srgb,var(--brand) 16%,transparent), color-mix(in srgb,var(--lav) 10%,transparent));border:1px solid color-mix(in srgb,var(--brand) 40%,transparent);box-shadow:0 12px 30px -10px color-mix(in srgb,var(--brand) 20%,transparent);display:flex;gap:clamp(12px,3vw,18px);align-items:flex-start;position:relative;overflow:hidden">
+              <div style="position:absolute;inset:0;background:radial-gradient(120% 120% at 80% 20%,rgba(214,168,74,.08),transparent 60%);pointer-events:none"></div>
+              <span style="flex:0 0 auto;width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--sage));display:grid;place-items:center;box-shadow:0 8px 16px -6px color-mix(in srgb,var(--brand) 60%,transparent)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F6F2EC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path></svg></span>
+              <div style="position:relative"><div style="font-family:'Cormorant',serif;font-size:22px;font-weight:700;color:var(--ink);line-height:1.1" data-i18n="rsv_dep_t">Availability & Discounts</div><div style="margin-top:6px;font-size:14px;color:var(--ink2);line-height:1.55" data-i18n="rsv_dep_d">No charges will be made now. When you contact us via WhatsApp, we will verify your dates, apply the <strong>special discounts</strong> available for you, and give you the final total. You only pay the 10% deposit if you decide to confirm your spot.</div></div>
+            </div>
+            <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:14px">
+              <span style="display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--ink3)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg><span data-i18n="rsv_tr2">Pay on arrival</span></span>
+              <span style="display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--ink3)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg><span data-i18n="rsv_tr3">Confirmation via WhatsApp</span></span>
+            </div>
+          </div>
+          <div data-wzpanel="" style="display:flex;flex-direction:column;background:var(--surface);border:1px solid color-mix(in srgb, var(--brand) 25%, var(--line));border-radius:20px;overflow:hidden;box-shadow:0 30px 60px -20px color-mix(in srgb, var(--brand) 18%, rgba(0,0,0,0.6));position:relative">
+            <div style="height:4px;background:linear-gradient(90deg,#E6C169,#C6982F,#E6C169);flex:0 0 auto"></div>
+            <div style="padding:16px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line2)">
+              <button data-wzback="" aria-label="Back" style="width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:none;place-items:center;color:var(--ink2)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></button>
+              <div style="flex:1">
+                <div data-wzsteplabel="" style="font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--lav)">Step 1</div>
+                <div style="margin-top:7px;height:5px;border-radius:3px;background:var(--surface2);overflow:hidden"><div data-wzbar="" style="height:100%;width:50%;border-radius:3px;background:linear-gradient(90deg,var(--sage),var(--brand));transition:width .45s cubic-bezier(.2,.8,.2,1)"></div></div>
+              </div>
+            </div>
+            <div data-wzbody="" class="iw-scroll" style="padding:24px 22px;min-height:280px;max-height:min(62vh,560px);overflow-y:auto"></div>
+            <div data-wzfoot="" style="padding:14px 20px;border-top:1px solid var(--line2);display:flex;align-items:center;gap:12px;background:var(--surface)">
+              <div data-wzsummary="" style="flex:1;font-size:12.5px;color:var(--ink2);font-weight:500"></div>
+              <button data-wznext="" class="iw-cta iw-cta-pulse" style="display:inline-flex;align-items:center;gap:8px;height:50px;padding:0 26px;border-radius:100px;background:var(--brand);color:#F6F2EC;font-size:14.5px;font-weight:600"><span data-wznextlbl="">Continue</span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ WHAT IS ============ -->
+  
+
+  <!-- ============ STATS TRUST BAND ============ -->
+  <section style="position:relative;padding:clamp(58px,7vw,92px) 0;overflow:hidden">
+    <img src="assets/img/amb-2.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%">
+    <div style="position:absolute;inset:0;background:linear-gradient(120deg,rgba(38,32,22,.93),rgba(74,86,60,.72))"></div>
+    <div style="position:absolute;inset:0;background:radial-gradient(120% 80% at 80% 20%,rgba(214,168,74,.18),transparent 60%)"></div>
+    <div style="position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,44px)">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:34px 20px;text-align:center">
+        <div data-reveal="" style="opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease"><div style="font-family:'Cormorant',serif;font-size:clamp(44px,6vw,66px);line-height:1;background:linear-gradient(180deg,#F4E4B8,#D6A84A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">702</div><div data-i18n="st_reviews" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-top:8px">5-star reviews</div></div>
+        <div data-reveal="" style="opacity:0;transform:translateY(20px);transition:opacity .7s ease .08s,transform .7s ease .08s"><div style="font-family:'Cormorant',serif;font-size:clamp(44px,6vw,66px);line-height:1;background:linear-gradient(180deg,#F4E4B8,#D6A84A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">20<span style="font-size:.55em">+</span></div><div data-i18n="st_years" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-top:8px">Years of tradition</div></div>
+        <div data-reveal="" style="opacity:0;transform:translateY(20px);transition:opacity .7s ease .16s,transform .7s ease .16s"><div style="font-family:'Cormorant',serif;font-size:clamp(44px,6vw,66px);line-height:1;background:linear-gradient(180deg,#F4E4B8,#D6A84A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">100<span style="font-size:.5em">%</span></div><div data-i18n="st_response" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-top:8px">Host response rate</div></div>
+        <div data-reveal="" style="opacity:0;transform:translateY(20px);transition:opacity .7s ease .24s,transform .7s ease .24s"><div style="font-family:'Cormorant',serif;font-size:clamp(44px,6vw,66px);line-height:1;background:linear-gradient(180deg,#F4E4B8,#D6A84A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">9</div><div data-i18n="st_practices" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-top:8px">8 practices to choose from</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BENEFITS (dark premium) ============ -->
+  <section id="benefits" style="position:relative;padding:clamp(76px,9vw,124px) 0;scroll-margin-top:80px;background:#1E1C15;overflow:hidden">
+    <img src="assets/img/amb-3.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.12">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,#211E16 0%,rgba(30,28,21,.86) 40%,#1B1913 100%)"></div>
+    <div style="position:absolute;inset:0;background:radial-gradient(90% 60% at 15% 0%,rgba(214,168,74,.12),transparent 55%)"></div>
+    <div style="position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,44px)">
+      <div data-reveal="" style="opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;text-align:center;max-width:680px;margin:0 auto">
+        <span style="display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#D6A84A;font-weight:600"><span style="width:28px;height:1px;background:#D6A84A"></span><span data-i18n="ben_eyebrow">Included in your stay</span><span style="width:28px;height:1px;background:#D6A84A"></span></span>
+        <h2 style="font-family:'Cormorant',serif;font-weight:500;font-size:clamp(32px,4.6vw,56px);line-height:1.08;margin:16px 0 0;color:#F6EFE2" data-i18n="ben_title">A full daily plan for your wellbeing</h2>
+        <p data-i18n="ben_sub" style="color:rgba(246,239,226,.72);font-size:17px;margin-top:16px">Beyond delicious, complete healthy meals, every day brings a powerful set of practices for body and mind.</p>
+      </div>
+      <div data-benefitgrid="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:52px"></div>
+    </div>
+  </section>
+
+  <!-- ============ ADDITIONAL SERVICES ============ -->
+  <section id="additional" style="position:relative;padding:clamp(60px,8vw,100px) 0 120px;scroll-margin-top:80px;background:#1E1C15;overflow:hidden">
+    <div style="position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,44px)">
+      <div data-reveal style="opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;text-align:center;max-width:880px;margin:0 auto">
+        <span style="display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#D6A84A;font-weight:600"><span style="width:28px;height:1px;background:#D6A84A"></span><span data-i18n="add_eyebrow">-Additional services and personalized classes-</span><span style="width:28px;height:1px;background:#D6A84A"></span></span>
+        <h2 style="font-family:'Cormorant',serif;font-weight:500;font-size:clamp(32px,4.6vw,56px);line-height:1.08;margin:16px 0 0;color:#F6EFE2" data-i18n="add_title">Additional experiences for every taste.</h2>
+        <p data-i18n="add_sub" style="color:rgba(246,239,226,.72);font-size:17px;margin-top:16px">We can tailor your itinerary to provide unique, personalized experiences. These are not included in the plan; please ask about the costs.</p>
+      </div>
+      <div data-addgrid style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:52px"></div>
+    </div>
+  </section>
+
+  <!-- ============ YOUR HOST ============ -->
+  <section id="host" style="padding:clamp(72px,9vw,120px) 0;scroll-margin-top:80px;background:var(--bg2);transition:background .5s ease;overflow:hidden">
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,44px);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(36px,5vw,64px);align-items:center">
+      <div data-reveal="" style="opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease">
+        <span style="display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--lav);font-weight:600"><span style="width:28px;height:1px;background:var(--lav)"></span><span data-i18n="host_eyebrow">Meet your host</span></span>
+        <div style="display:flex;align-items:center;gap:16px;margin-top:20px">
+          <img src="assets/img/carlos-avatar.jpg" alt="Carlos" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:80% 15%;box-shadow:0 0 0 1px var(--line),var(--shadow)">
+          <div>
+            <h2 style="font-family:'Cormorant',serif;font-weight:600;font-size:clamp(30px,4vw,44px);line-height:1;color:var(--ink)">Carlos</h2>
+            <div style="display:inline-flex;align-items:center;gap:7px;margin-top:6px"><svg width="15" height="15" viewBox="0 0 24 24" fill="#FF385C"><path d="M12 2c1.6 3.6 4.4 6.4 8 8-3.6 1.6-6.4 4.4-8 8-1.6-3.6-4.4-6.4-8-8 3.6-1.6 6.4-4.4 8-8Z"></path></svg><span data-i18n="host_super" style="font-size:12.5px;font-weight:600;color:var(--ink2)">Airbnb Superhost · Verified</span></div>
+          </div>
+        </div>
+        <p data-i18n="host_p1" style="color:var(--ink2);font-size:16.5px;line-height:1.8;margin-top:22px">I am passionate about welcoming people who visit Cali into my comfortable and beautiful accommodations. I love dancing — especially Salsa — going to the movies, meditating, and practicing yoga and Feldenkrais.</p>
+        <p data-i18n="host_p2" style="color:var(--ink2);font-size:16.5px;line-height:1.8;margin-top:14px">By work and vocation, I share classes and workshops of my own yoga system — <em style="color:var(--brand);font-style:italic">Ishka Kankueb Yoga</em> — at my wellness center, where I also teach the Feldenkrais Method®, of which I am a certified teacher. I'm a yoga content creator on YouTube, and I welcome and serve everyone who visits with a generous, joyful heart.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:26px;margin-top:26px">
+          <div><div style="font-family:'Cormorant',serif;font-size:32px;color:var(--brand);line-height:1">416</div><div data-i18n="host_s1" style="font-size:12.5px;color:var(--ink3)">Airbnb reviews</div></div>
+          <div><div style="font-family:'Cormorant',serif;font-size:32px;color:var(--brand);line-height:1">4.84★</div><div data-i18n="host_s2" style="font-size:12.5px;color:var(--ink3)">Overall rating</div></div>
+          <div><div style="font-family:'Cormorant',serif;font-size:32px;color:var(--brand);line-height:1">11</div><div data-i18n="host_s3" style="font-size:12.5px;color:var(--ink3)">Years hosting</div></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:30px">
+          <button onClick="{{ openResv }}" data-i18n="host_cta" style="padding:15px 30px;border-radius:100px;background:var(--brand);color:#F6F2EC;font-size:14px;font-weight:600;box-shadow:var(--shadow);transition:transform .3s">Stay with Carlos</button>
+          <a href="https://www.airbnb.com/users/show/ishka" target="_blank" rel="noopener" data-i18n="host_cta2" style="display:inline-flex;align-items:center;gap:8px;padding:15px 26px;border-radius:100px;border:1px solid var(--line);color:var(--ink);font-size:14px;font-weight:600;transition:all .3s">View Airbnb profile →</a>
+        </div>
+      </div>
+      <div data-reveal="" style="opacity:0;transform:translateY(24px);transition:opacity .8s ease .1s,transform .8s ease .1s">
+        <div style="position:relative;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)">
+          <div data-hostrail="" class="iw-scroll" style="display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;aspect-ratio:4/4.4">
+            <img src="assets/img/carlos/Carlos-1.jpg" alt="" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:center">
+            <img src="assets/img/carlos/Carlos-2.jpg" alt="" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:center">
+            <img src="assets/img/carlos/Carlos-3.jpg" alt="" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:center">
+            <img src="assets/img/carlos/Carlos-4.jpg" alt="" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:center">
+            <img src="assets/img/carlos/Carlos-5.jpg" alt="" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:center">
+            <img src="assets/img/carlos/Carlos-6.jpg" alt="" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:center">
+            <img src="assets/img/carlos/Carlos-7.jpg" alt="" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:center">
+            <img src="assets/img/carlos/Carlos-8.jpg" alt="" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:center">
+            <img src="assets/img/carlos/Carlos-9.jpg" alt="" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:center">
+            <img src="assets/img/carlos/amb-4.jpg" alt="" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:center">
+            <img src="assets/img/carlos/amb-7.jpg" alt="" style="flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:center">
+          </div>
+          <div style="position:absolute;inset:auto 0 0 0;height:120px;background:linear-gradient(transparent,rgba(20,16,25,.5));pointer-events:none"></div>
+          <div data-hostdots="" style="position:absolute;left:0;right:0;bottom:16px;display:flex;gap:7px;justify-content:center;z-index:2"></div>
+          <button data-hostprev="" aria-label="Previous" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.9);display:none;place-items:center;color:#2B2340;z-index:2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg></button>
+          <button data-hostnext="" aria-label="Next" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.9);display:none;place-items:center;color:#2B2340;z-index:2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
+        </div>
+        <div data-hostswipe="" style="display:none;align-items:center;justify-content:center;gap:9px;color:var(--ink3);font-size:12.5px;margin-top:12px">
+          <span data-i18n="swipe">Swipe to see more</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="animation:iwSwipe 1.6s ease-in-out infinite"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VIDEO SHOWCASE ============ -->
+  <section id="video" style="position:relative;padding:clamp(76px,9vw,124px) 0;scroll-margin-top:80px;background:#1B1913;overflow:hidden">
+    <img src="assets/img/amb-1.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.14">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,#1E1B14,rgba(27,25,19,.82) 45%,#171510)"></div>
+    <div style="position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 0%,rgba(214,168,74,.14),transparent 60%)"></div>
+    <div style="position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:0 clamp(20px,4vw,44px);text-align:center">
+      <div data-reveal="" style="opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease">
+        <span style="display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#D6A84A;font-weight:600"><span style="width:28px;height:1px;background:#D6A84A"></span><span data-i18n="video_eyebrow">Discover Ishka Center</span><span style="width:28px;height:1px;background:#D6A84A"></span></span>
+        <h2 style="font-family:'Cormorant',serif;font-weight:500;font-size:clamp(32px,4.6vw,56px);line-height:1.08;margin:16px 0 0;color:#F6EFE2" data-i18n="video_title">See it for yourself</h2>
+        <p data-i18n="video_sub" style="color:rgba(246,239,226,.72);font-size:17px;margin-top:16px;max-width:600px;margin-left:auto;margin-right:auto">A journey through the wellness oasis where your transformation begins.</p>
+      </div>
+      <div data-reveal="" style="opacity:0;transform:translateY(24px);transition:opacity .8s ease .12s,transform .8s ease .12s;position:relative;margin-top:44px;border-radius:24px;overflow:hidden;max-width:340px;margin-left:auto;margin-right:auto;aspect-ratio:9/16;box-shadow:0 40px 90px -30px rgba(0,0,0,.85);border:1px solid rgba(214,168,74,.25)">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/ZKT254xJYbk" title="Ishka Center YouTube Short" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;inset:0"></iframe>
+      </div>
+      <div data-reveal="" style="opacity:0;transform:translateY(20px);transition:opacity .7s ease .2s,transform .7s ease .2s;margin-top:34px">
+        <button onClick="{{ openResv }}" data-i18n="video_cta" style="padding:16px 34px;border-radius:100px;background:linear-gradient(135deg,#E6C169,#C6982F);color:#2A2413;font-size:14.5px;font-weight:700;letter-spacing:.02em;box-shadow:0 16px 40px -14px rgba(198,152,47,.6);transition:transform .3s">Book your experience</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ WHO FOR ============ -->
+  <section id="whofor" style="padding:clamp(72px,9vw,120px) 0;scroll-margin-top:80px;background:var(--bg)">
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,44px)">
+      <div data-reveal="" style="opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;text-align:center;max-width:680px;margin:0 auto">
+        <span style="display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--lav);font-weight:600"><span style="width:28px;height:1px;background:var(--lav)"></span><span data-i18n="who_eyebrow">Who it's for</span><span style="width:28px;height:1px;background:var(--lav)"></span></span>
+        <h2 style="font-family:'Cormorant',serif;font-weight:500;font-size:clamp(32px,4.4vw,54px);line-height:1.08;margin:16px 0 0;color:var(--ink)" data-i18n="who_title">Made for those seeking a shift</h2>
+        <p data-i18n="who_sub" style="color:var(--ink2);font-size:17px;margin-top:16px">Save on accommodation and food while cultivating your wellbeing — whatever chapter of life you're in.</p>
+      </div>
+      <div data-personagrid="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:50px"></div>
+    </div>
+  </section>
+
+  <!-- ============ AMBIENT QUOTE BAND ============ -->
+  <section style="position:relative;min-height:58vh;display:flex;align-items:center;justify-content:center;overflow:hidden">
+    <img src="assets/img/amb-1.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,24,15,.56),rgba(22,18,11,.5))"></div>
+    <blockquote data-i18n="band_quote" style="position:relative;z-index:2;max-width:820px;padding:60px clamp(20px,4vw,44px);text-align:center;font-family:'Cormorant',serif;font-style:italic;font-weight:500;font-size:clamp(26px,4vw,48px);line-height:1.28;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.4)">"You don't come to I-Well to escape your life — you come to remember how to live it."</blockquote>
+  </section>
+
+  <!-- ============ LOCATION ============ -->
+  <section id="location" style="padding:clamp(72px,9vw,120px) 0;scroll-margin-top:80px;background:var(--bg2);transition:background .5s ease">
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,44px);display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(36px,5vw,64px);align-items:center">
+      <div data-reveal="" style="opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease">
+        <span style="display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--lav);font-weight:600"><span style="width:28px;height:1px;background:var(--lav)"></span><span data-i18n="loc_eyebrow">A natural paradise</span></span>
+        <h2 style="font-family:'Cormorant',serif;font-weight:500;font-size:clamp(32px,4.4vw,54px);line-height:1.08;margin:16px 0 0;color:var(--ink)" data-i18n="loc_title">Ishka Center, southwest Cali</h2>
+        <p data-i18n="loc_p1" style="color:var(--ink2);font-size:17px;line-height:1.8;margin-top:20px">The most visited wellness center in southwest Colombia, with over 20 years of tradition — in the safest area of Cali, far from the noise, where nature, fresh air and calm abound.</p>
+        <ul style="list-style:none;margin:26px 0 0;display:flex;flex-direction:column;gap:16px">
+          <li style="display:flex;gap:14px;align-items:flex-start"><span style="flex:0 0 22px;color:var(--sage);margin-top:2px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span><span data-i18n="loc_f1" style="color:var(--ink);font-size:15px">Barrio Pance, Cali — Valle del Cauca, Colombia</span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start"><span style="flex:0 0 22px;color:var(--sage);margin-top:2px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 8a4 4 0 0 0-4 4v8h8v-8a4 4 0 0 0-4-4ZM8 20h8"></path></svg></span><span data-i18n="loc_f2" style="color:var(--ink);font-size:15px">15 min from Valle del Lili — one of Latin America's finest clinics</span></li>
+          <li style="display:flex;gap:14px;align-items:flex-start"><span style="flex:0 0 22px;color:var(--sage);margin-top:2px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"></path></svg></span><span data-i18n="loc_f3" style="color:var(--ink);font-size:15px">The wellness school with the most reviews in the region</span></li>
+        </ul>
+        <a href="https://www.google.com/maps/place/Ishka+Center+-+yoga,+motion+%26+wellness+school/@3.3292047,-76.5263878,17z/data=!3m1!4b1!4m6!3m5!1s0x8e30a15dc5d711c5:0x387c446dae77cfd8!8m2!3d3.3292047!4d-76.5238129!16s%2Fg%2F11t9v3jjp6?entry=ttu&g_ep=EgoyMDI2MDgxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" data-i18n="loc_cta" style="display:inline-flex;align-items:center;gap:9px;margin-top:28px;padding:14px 26px;border-radius:100px;border:1px solid var(--brand);color:var(--brand);font-size:14px;font-weight:600;transition:all .3s">Open in Google Maps →</a>
+      </div>
+      <div data-reveal="" style="opacity:0;transform:translateY(24px);transition:opacity .8s ease .12s,transform .8s ease .12s;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);min-height:420px">
+        <iframe title="Ishka Center - yoga, motion &amp; wellness school" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.084885475921!2d-76.5238129!3d3.3292047000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a15dc5d711c5%3A0x387c446dae77cfd8!2sIshka%20Center%20-%20yoga%2C%20motion%20%26%20wellness%20school!5e0!3m2!1ses-419!2sco!4v1784918782254!5m2!1ses-419!2sco" style="width:100%;height:100%;min-height:420px;border:0" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section id="reviews" style="padding:clamp(72px,9vw,120px) 0;scroll-margin-top:80px;background:var(--bg2);transition:background .5s ease;overflow:hidden">
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,44px)">
+      <div data-reveal="" style="opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;text-align:center;max-width:720px;margin:0 auto">
+        <span style="display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--lav);font-weight:600"><span style="width:28px;height:1px;background:var(--lav)"></span><span data-i18n="rev_eyebrow">Real guests, real words</span><span style="width:28px;height:1px;background:var(--lav)"></span></span>
+        <h2 style="font-family:'Cormorant',serif;font-weight:500;font-size:clamp(32px,4.4vw,54px);line-height:1.08;margin:16px 0 0;color:var(--ink)" data-i18n="rev_title">Loved by guests from around the world</h2>
+        <div style="display:inline-flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:24px;padding:14px 26px;border-radius:100px;background:var(--surface);border:1px solid var(--line);box-shadow:0 14px 40px -22px rgba(60,48,20,.5)">
+          <span style="display:inline-flex;align-items:center;gap:10px">
+            <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06L5.84 9.9C6.71 7.31 9.14 5.38 12 5.38z"/></svg>
+            <span style="font-size:14px;font-weight:700;color:var(--ink)">Google</span>
+          </span>
+          <span style="width:1px;height:22px;background:var(--line)"></span>
+          <span style="display:inline-flex;align-items:baseline;gap:8px"><span style="font-family:'Cormorant',serif;font-size:28px;font-weight:600;color:var(--ink);line-height:1">5.0</span><span style="color:var(--gold);letter-spacing:1px;font-size:14px">★★★★★</span></span>
+          <span style="width:1px;height:22px;background:var(--line)"></span>
+          <span style="font-size:13px;font-weight:600;color:var(--ink2)" data-i18n="rev_count">687 reviews on Google</span>
+        </div>
+      </div>
+    </div>
+    <div data-revscroll="" class="iw-scroll" style="display:flex;gap:20px;overflow-x:auto;padding:44px 20px 20px;scroll-snap-type:x mandatory;scrollbar-width:none;max-width:1240px;margin:0 auto">
+      <sc-for list="{{ reviews }}" as="rv" hint-placeholder-count="4">
+        <div style="flex:0 0 min(88vw,384px);scroll-snap-align:center;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px 28px 26px;display:flex;flex-direction:column;box-shadow:0 20px 50px -30px rgba(60,48,20,.45);transition:transform .4s ease,box-shadow .4s ease" data-revcard="">
+          <div style="display:flex;align-items:center;gap:13px">
+            <div style="position:relative;flex:0 0 auto">
+              <div style="width:50px;height:50px;border-radius:50%;background:{{ rv.avc }};display:grid;place-items:center;font-family:'Cormorant',serif;font-weight:600;font-size:22px;color:#fff">{{ rv.ini }}</div>
+              <span style="position:absolute;bottom:-2px;right:-2px;width:20px;height:20px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 2px 6px rgba(0,0,0,.15)"><svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.06L5.84 9.9C6.71 7.31 9.14 5.38 12 5.38z"/></svg></span>
+            </div>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:15px;color:var(--ink);font-weight:700">{{ rv.name }}</div>
+              <div style="font-size:12.5px;color:var(--ink3)">{{ rv.loc }} · {{ rv.date }}</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin:18px 0 12px"><span style="color:var(--gold);letter-spacing:2px;font-size:15px">★★★★★</span><span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:var(--sage)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-i18n="rev_verified">Verified stay</span></span></div>
+          <blockquote style="font-family:'Cormorant',serif;font-size:20px;line-height:1.5;color:var(--ink);font-weight:500;flex:1;margin:0">{{ rv.quote }}</blockquote>
+        </div>
+      </sc-for>
+    </div>
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,44px);display:flex;justify-content:center;align-items:center;gap:16px;margin-top:10px;flex-wrap:wrap">
+      <a href="https://www.google.com/travel/search?q=ishka%20center&g2lb=4965990%2C72471280%2C72560029%2C72573224%2C72647020%2C72686036%2C72803964%2C72882230%2C73064764%2C121529350%2C121608706%2C121738283%2C121762713%2C121948837&hl=es-419&gl=co&ssta=1&ts=CAEaKwopEicyJTB4OGUzMGExNWRjNWQ3MTFjNToweDM4N2M0NDZkYWU3N2NmZDg&qs=CAEyE0Nnb0kySl9mODlxTmtiNDRFQUU4Ag&ap=ugEHcmV2aWV3cw&ictx=111&ved=0CAAQ5JsGahcKEwiwraK2iqGWAxUAAAAAHQAAAAAQBg" target="_blank" rel="noopener" data-i18n="rev_all" class="iw-cta" style="display:inline-flex;align-items:center;gap:9px;padding:13px 26px;border-radius:100px;background:var(--surface);border:1px solid var(--line);color:var(--ink);font-size:13.5px;font-weight:600">Read all reviews on Google</a>
+      <div data-revnav="" style="display:flex;gap:12px">
+        <button onClick="{{ revPrev }}" aria-label="Previous" style="width:46px;height:46px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--brand);background:var(--surface);transition:all .3s"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg></button>
+        <button onClick="{{ revNext }}" aria-label="Next" style="width:46px;height:46px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--brand);background:var(--surface);transition:all .3s"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INSTAGRAM ============ -->
+  <section id="instagram" style="padding:clamp(72px,9vw,120px) 0;scroll-margin-top:80px;background:var(--bg)">
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,44px)">
+      <div data-reveal="" style="opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+        <div>
+          <span style="display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--lav);font-weight:600"><span style="width:28px;height:1px;background:var(--lav)"></span><span data-i18n="ig_eyebrow">Follow the journey</span></span>
+          <h2 style="font-family:'Cormorant',serif;font-weight:500;font-size:clamp(30px,4vw,48px);line-height:1.08;margin:14px 0 0;color:var(--ink)">@ishka.center</h2>
+        </div>
+        <a href="https://www.instagram.com/ishka.center/" target="_blank" rel="noopener" data-i18n="ig_cta" class="iw-cta" style="display:inline-flex;align-items:center;gap:9px;padding:13px 26px;border-radius:100px;background:var(--brand);color:#F6F2EC;font-size:14px;font-weight:600;transition:all .3s">Follow on Instagram</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:36px">
+        <a href="https://www.instagram.com/ishka.center/" target="_blank" rel="noopener" data-igtile="" style="position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;display:block"><img src="assets/img/ishka/Ishka-1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease"></a>
+        <a href="https://www.instagram.com/ishka.center/" target="_blank" rel="noopener" data-igtile="" style="position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;display:block"><img src="assets/img/ishka/Ishka-2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease"></a>
+        <a href="https://www.instagram.com/ishka.center/" target="_blank" rel="noopener" data-igtile="" style="position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;display:block"><img src="assets/img/ishka/Ishka-3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease"></a>
+        <a href="https://www.instagram.com/ishka.center/" target="_blank" rel="noopener" data-igtile="" style="position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;display:block"><img src="assets/img/ishka/Jardin_4.jpg" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease"></a>
+        <a href="https://www.instagram.com/ishka.center/" target="_blank" rel="noopener" data-igtile="" style="position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;display:block"><img src="assets/img/ishka/jardin-3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease"></a>
+        <a href="https://www.instagram.com/ishka.center/" target="_blank" rel="noopener" data-igtile="" style="position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;display:block"><img src="assets/img/ishka/jardín-5.jpg" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform .5s ease"></a>
+      </div>
+      <p data-i18n="ig_note" style="text-align:center;font-size:12px;color:var(--ink3);margin-top:16px;font-style:italic">Example feed - replace with the live Instagram gallery when ready.</p>
+    </div>
+  </section>
+
+  <!-- ============ PRICING / FINAL CTA ============ -->
+  <section id="book" style="position:relative;padding:clamp(80px,10vw,140px) 0;scroll-margin-top:80px;overflow:hidden">
+    <img src="assets/img/amb-1.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,26,15,.86),rgba(20,17,10,.93))"></div>
+    <div style="position:absolute;inset:0;background:radial-gradient(90% 60% at 50% 10%,rgba(214,168,74,.18),transparent 60%)"></div>
+    <div style="position:relative;z-index:2;max-width:900px;margin:0 auto;padding:0 clamp(20px,4vw,44px);text-align:center">
+      <span style="display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#E6C169;font-weight:600"><span style="width:28px;height:1px;background:#E6C169"></span><span data-i18n="price_eyebrow">Flexible stays</span><span style="width:28px;height:1px;background:#E6C169"></span></span>
+      <h2 style="font-family:'Cormorant',serif;font-weight:500;font-size:clamp(38px,6vw,72px);line-height:1.05;color:#F8F1E3;margin:18px 0 0"><span data-i18n="price_t1">Treat yourself to</span> <span data-i18n="price_t2" style="font-style:italic;background:linear-gradient(180deg,#F4E4B8,#D6A84A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">I-Well</span></h2>
+      <p data-i18n="price_sub" style="font-family:'Cormorant',serif;font-size:clamp(19px,2.4vw,26px);color:rgba(248,241,227,.86);max-width:640px;margin:22px auto 0;line-height:1.45">Stay 3 nights or a whole month. Monday to Saturday, a full schedule of classes awaits — take them all, or choose the ones your soul asks for.</p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:38px auto 0;max-width:760px">
+        <div style="flex:1;min-width:180px;display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 18px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(214,168,74,.22)"><span style="width:38px;height:38px;border-radius:50%;border:1px solid rgba(230,193,105,.5);display:grid;place-items:center;font-family:'Cormorant',serif;font-size:19px;color:#E6C169">1</span><span data-i18n="price_s1" style="font-size:13.5px;font-weight:600;color:rgba(248,241,227,.92);line-height:1.4">Pick your dates — from 3 nights</span></div>
+        <div style="flex:1;min-width:180px;display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 18px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(214,168,74,.22)"><span style="width:38px;height:38px;border-radius:50%;border:1px solid rgba(230,193,105,.5);display:grid;place-items:center;font-family:'Cormorant',serif;font-size:19px;color:#E6C169">2</span><span data-i18n="price_s2" style="font-size:13.5px;font-weight:600;color:rgba(248,241,227,.92);line-height:1.4">Hold with just 10% today</span></div>
+        <div style="flex:1;min-width:180px;display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 18px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(214,168,74,.22)"><span style="width:38px;height:38px;border-radius:50%;border:1px solid rgba(230,193,105,.5);display:grid;place-items:center;font-family:'Cormorant',serif;font-size:19px;color:#E6C169">3</span><span data-i18n="price_s3" style="font-size:13.5px;font-weight:600;color:rgba(248,241,227,.92);line-height:1.4">Pay the rest in cash on arrival</span></div>
+      </div>
+
+      <div style="position:relative;display:inline-flex;flex-direction:column;align-items:center;background:rgba(255,255,255,.07);border:1px solid rgba(214,168,74,.32);backdrop-filter:blur(8px);border-radius:24px;padding:34px 50px;margin-top:34px;overflow:hidden">
+        <span style="position:absolute;inset:0;border-radius:24px;box-shadow:inset 0 0 0 1px rgba(230,193,105,.25);animation:iwGoldRing 3.4s ease-in-out infinite;pointer-events:none"></span>
+        <div data-i18n="price_from" style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(248,241,227,.72)">From, per night</div>
+        <div style="display:flex;align-items:baseline;gap:8px;margin-top:8px"><span style="font-size:20px;color:#E6C169;align-self:flex-start;margin-top:8px">$</span><span style="font-family:'Cormorant',serif;font-size:66px;color:#F8F1E3;line-height:1">295.000</span><span style="font-size:18px;color:rgba(248,241,227,.75)">COP</span></div>
+        <div style="font-size:13px;color:rgba(248,241,227,.62);margin-top:12px"><span data-i18n="price_min">3-night minimum</span></div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:26px">
+          <button onClick="{{ openResv }}" data-i18n="price_cta" class="iw-cta iw-cta-pulse" style="padding:17px 40px;border-radius:100px;background:linear-gradient(135deg,#E6C169,#C6982F);color:#2A2413;font-size:15px;font-weight:700;letter-spacing:.02em;box-shadow:0 16px 44px -14px rgba(198,152,47,.65)">Check availability</button>
+          <a href="https://api.whatsapp.com/send/?phone=573016859718&amp;text=Hi%20I-Well!%20I%27d%20like%20to%20check%20availability." target="_blank" rel="noopener" data-cta="" data-i18n="price_cta2" class="iw-cta" style="display:inline-flex;align-items:center;gap:9px;padding:17px 32px;border-radius:100px;border:1px solid rgba(248,241,227,.45);color:#F8F1E3;font-size:15px;font-weight:600;backdrop-filter:blur(4px)"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21l1.7-5A8 8 0 1 1 8 19.3zM9 9.5c.5 2 2.5 4 4.5 4.5l1.2-1.4 1.8.8c.2 1.5-1.2 2-2 2-3 0-6.5-3.5-6.5-6.5 0-.8.5-2.2 2-2l.8 1.8z"></path></svg>Chat on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer style="background:var(--bg);border-top:1px solid var(--line);padding:72px 0 34px">
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,44px);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:44px">
+      <div>
+        <img data-logo="" src="assets/logo-iwell-transparent.png" alt="I-WELL" style="height:52px;width:auto;margin-bottom:18px">
+        <p data-i18n="foot_tag" style="color:var(--ink2);font-size:14.5px;line-height:1.7;max-width:300px">The most visited wellness center in southwest Colombia. Transforming lives since 2005.</p>
+        <div style="display:flex;gap:12px;margin-top:22px">
+          <a href="https://www.instagram.com/ishka.center/" target="_blank" rel="noopener" aria-label="Instagram" data-social="" style="width:42px;height:42px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--brand);transition:all .3s"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg></a>
+          <a href="https://api.whatsapp.com/send/?phone=573016859718" target="_blank" rel="noopener" aria-label="WhatsApp" data-social="" style="width:42px;height:42px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--brand);transition:all .3s"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.7-5A8 8 0 1 1 8 19.3z"></path><path d="M9 9.5c.5 2 2.5 4 4.5 4.5l1.2-1.4 1.8.8c.2 1.5-1.2 2-2 2-3 0-6.5-3.5-6.5-6.5 0-.8.5-2.2 2-2l.8 1.8z"></path></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-family:'Cormorant',serif;font-weight:600;font-size:20px;color:var(--brand);margin-bottom:18px" data-i18n="foot_contact">Contact</h4>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <a href="https://api.whatsapp.com/send/?phone=573016859718" target="_blank" rel="noopener" style="color:var(--ink2);font-size:14.5px;transition:color .3s">+57 301 685 9718</a>
+          <a href="https://www.instagram.com/ishka.center/" target="_blank" rel="noopener" style="color:var(--ink2);font-size:14.5px;transition:color .3s">instagram.com/ishka.center</a>
+          <a href="https://ishka.center/" target="_blank" rel="noopener" style="color:var(--ink2);font-size:14.5px;transition:color .3s">ishka.center</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-family:'Cormorant',serif;font-weight:600;font-size:20px;color:var(--brand);margin-bottom:18px" data-i18n="foot_location">Location</h4>
+        <p style="color:var(--ink2);font-size:14.5px;line-height:1.7">Cra. 129 #25-181<br>Barrio Pance, Cali<br>Valle del Cauca, Colombia</p>
+        <button onClick="{{ openResv }}" data-i18n="nav_book" style="margin-top:20px;padding:12px 24px;border-radius:100px;background:var(--brand);color:#F6F2EC;font-size:13px;font-weight:600">Check availability</button>
+      </div>
+    </div>
+    <div style="max-width:1240px;margin:44px auto 0;padding:24px clamp(20px,4vw,44px) 0;border-top:1px solid var(--line2);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;color:var(--ink3);font-size:12.5px">
+      <span>© 2026 Ishka Center · I-WELL. <span data-i18n="foot_rights">All rights reserved.</span></span>
+      <span data-i18n="foot_slogan" style="font-family:'Cormorant',serif;font-style:italic;font-size:15px;color:var(--lav)">The Life You Deserve</span>
+    </div>
+  </footer>
+
+  <!-- ============ FLOATING WHATSAPP ============ -->
+  <a data-wa="" href="https://api.whatsapp.com/send/?phone=573016859718&amp;text=Hi%20I-Well!%20I%27d%20like%20to%20check%20availability." target="_blank" rel="noopener" aria-label="Chat on WhatsApp" style="position:fixed;right:22px;bottom:22px;z-index:150;width:60px;height:60px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(37,211,102,.6);transition:transform .3s ease">
+    <span style="position:absolute;inset:0;border-radius:50%;background:#25D366;opacity:.55;animation:iwWa 2.4s ease-out infinite;z-index:-1"></span>
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M17.5 14.4c-.3-.15-1.7-.84-2-.93-.26-.1-.45-.15-.64.15s-.74.92-.9 1.11c-.17.19-.33.21-.62.07a8.2 8.2 0 0 1-2.4-1.48 9 9 0 0 1-1.67-2.07c-.17-.3 0-.46.13-.6.13-.14.29-.33.43-.5.15-.18.19-.3.29-.5.1-.19.05-.36-.02-.5-.08-.15-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.48l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38s1.02 2.76 1.16 2.95c.15.19 2.02 3.08 4.9 4.32.68.3 1.22.47 1.63.6.69.22 1.31.19 1.8.11.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34ZM12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2Z"></path></svg>
+  </a>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { theme:'light', lang:'en', step:0, room:'akash', nights:3, guests:1, diet:'Vegan', interests:['Yoga'], paying:false };
+
+  ROOMS = [
+    { id:'akash', name:'Akash Suite', img:'assets/img/room-akash.webp', price:120, rating:'4.9', featured:true,
+      tagEn:'Signature luxury', tagEs:'Lujo insignia',
+      descEn:'Our finest suite — king bed, private jacuzzi, air conditioning and a serene garden terrace.',
+      descEs:'Nuestra mejor suite — cama king, jacuzzi privado, aire acondicionado y una terraza serena al jardín.',
+      chipsEn:['King bed','Private jacuzzi','A/C','Terrace'], chipsEs:['Cama king','Jacuzzi privado','A/C','Terraza'],
+      airbnb:'https://www.airbnb.com/rooms' },
+    { id:'shambala', name:'Shambala', img:'assets/img/room-2.jpg', price:88, rating:'4.9', featured:false,
+      tagEn:'Artful & bright', tagEs:'Colorida y luminosa',
+      descEn:'A vibrant, light-filled room with a handcrafted headboard, hot-water bath and garden views.',
+      descEs:'Una habitación vibrante y luminosa con cabecero artesanal, baño con agua caliente y vista al jardín.',
+      chipsEn:['Double bed','Hot-water bath','Garden view','Wi-Fi'], chipsEs:['Cama doble','Agua caliente','Vista jardín','Wi-Fi'],
+      airbnb:'https://www.airbnb.com/rooms' },
+    { id:'kashlem', name:'Kashlem', img:'assets/img/room-1.jpg', price:78, rating:'4.74', featured:false,
+      tagEn:'Hammock & calm', tagEs:'Hamaca y calma',
+      descEn:'A cozy retreat with a private hammock corner, equipped kitchenette and quiet surroundings.',
+      descEs:'Un refugio acogedor con rincón de hamaca privado, cocina equipada y un entorno tranquilo.',
+      chipsEn:['Double bed','Hammock','Kitchenette','Parking'], chipsEs:['Cama doble','Hamaca','Cocineta','Parqueo'],
+      airbnb:'https://www.airbnb.com/rooms' },
+    { id:'ashtasia', name:'Ashtasia', img:'assets/img/room-ashtasia.webp', price:75, rating:'4.74', featured:false,
+      tagEn:'Warm & simple', tagEs:'Cálida y simple',
+      descEn:'A warm, restful room with all the essentials for a productive, peaceful stay.',
+      descEs:'Una habitación cálida y tranquila con todo lo esencial para una estadía productiva y en paz.',
+      chipsEn:['Double bed','Hot-water bath','Desk','Wi-Fi'], chipsEs:['Cama doble','Agua caliente','Escritorio','Wi-Fi'],
+      airbnb:'https://www.airbnb.com/rooms' },
+    { id:'maltiosh', name:'Maltiosh', img:'assets/img/cabin-ext.webp', price:72, rating:'4.85', featured:false,
+      tagEn:'Garden cottage', tagEs:'Cabaña de jardín',
+      descEn:'A charming stand-alone cottage nestled in greenery — privacy, birdsong and fresh air.',
+      descEs:'Una encantadora cabaña independiente entre el verde — privacidad, canto de pájaros y aire fresco.',
+      chipsEn:['Private cottage','Double bed','Garden','Parking'], chipsEs:['Cabaña privada','Cama doble','Jardín','Parqueo'],
+      airbnb:'https://www.airbnb.com/rooms' }
+  ];
+  roomById(id){ return this.ROOMS.find(r=>r.id===id) || this.ROOMS[0]; }
+
+  MEALS = [
+    { img:'assets/img/meal-salad.jpg', en:'Honey fruit salad', es:'Ensalada de frutas con miel', tagEn:'Vegan · Fresh', tagEs:'Vegano · Fresco' },
+    { img:'assets/img/meal-arepa.jpg', en:'Arepas & eggs perico', es:'Arepas y huevos pericos', tagEn:'Colombian · Breakfast', tagEs:'Colombiano · Desayuno' },
+    { img:'assets/img/meal-3.webp', en:'Wholesome bowls', es:'Bowls nutritivos', tagEn:'Balanced · Nourishing', tagEs:'Balanceado · Nutritivo' },
+    { img:'assets/img/garden-2.jpg', en:'From our own garden', es:'De nuestro propio huerto', tagEn:'Farm to table', tagEs:'Del huerto a la mesa' }
+  ];
+  PERSONAS = [
+    { img:'assets/img/amb-3.jpg', en:'Retirees looking to optimize their living expenses budget', es:'Jubilados buscando optimizar su presupuesto de manutención', dEn:'A safe, warm, affordable place to reconnect, regain mobility and improve quality of life.', dEs:'Un lugar seguro, cálido y accesible para reconectar, recuperar movilidad y mejorar la calidad de vida.' },
+    { img:'assets/img/iwell-1.jpg', en:'Digital nomads seeking balance', es:'Nómadas digitales que buscan equilibrio', dEn:'Combine remote productivity with nature, tranquility and a healthier lifestyle.', dEs:'Combina la productividad remota con naturaleza, tranquilidad y un estilo de vida más saludable.' },
+    { img:'assets/img/amb-pond.jpg', en:'Foreigners wanting to live in Cali', es:'Extranjeros que quieren vivir en Cali', dEn:'Short or long stays in a safe, beautiful, affordable place with a warm climate and authentic culture.', dEs:'Estadías cortas o largas en un lugar seguro, hermoso y accesible, con clima cálido y cultura auténtica.' },
+    { img:'assets/img/amb-omgate.jpg', en:'People exhausted by urban stress', es:'Personas agotadas por el estrés urbano', dEn:'A physical and mental break to regain energy, clarity and emotional wellbeing.', dEs:'Una pausa física y mental para recuperar energía, claridad y bienestar emocional.' },
+    { img:'assets/img/jardin-3.jpg', en:'Seekers of mindful experiences', es:'Buscadores de experiencias conscientes', dEn:'For those drawn to yoga, meditation, breathwork, stillness and healthy eating.', dEs:'Para quienes aman el yoga, la meditación, la respiración, la quietud y la comida sana.' },
+    { img:'assets/img/amb-2.jpg', en:'People in transition or recovery', es:'Personas en transición o recuperación', dEn:'A safe, healing environment focused on holistic wellbeing — without being clinical.', dEs:'Un entorno seguro y sanador enfocado en el bienestar integral — sin ser clínico.' },
+    { img:'assets/img/jardin-4.jpg', en:'Creatives & entrepreneurs', es:'Creativos y emprendedores', dEn:'Inspiration, quiet spaces and a stable rhythm to create, think and produce.', dEs:'Inspiración, espacios tranquilos y un ritmo estable para crear, pensar y producir.' },
+    { img:'assets/img/parejas-ishka.jpg', en:'Couples seeking connection', es:'Parejas que buscan reconectar', dEn:'Peaceful days, mindful practices, nature and good food to reconnect.', dEs:'Días tranquilos, prácticas conscientes, naturaleza y buena comida para reconectar.' }
+  ];
+  BENEFITS = [
+    { img:'assets/img/room-akash.webp', ic:'<path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/>', en:'Private accommodation', es:'Alojamiento privado', dEn:'Comfortable, furnished studio apartments surrounded by beautiful gardens.', dEs:'Cómodos apartaestudios amoblados rodeados de hermosos jardines.' },
+    { img:'assets/img/meal-salad.jpg', ic:'<path d="M6 3v6a3 3 0 0 0 6 0V3M9 3v18M18 3c-1.5 1-2 3-2 6s.5 4 2 5v7"/>', en:'Healthy meals', es:'Comidas saludables', dEn:' Breakfast and lunch included every day, with abundant vegetables, legumes, grains, fruits — and quality animal protein if you wish.', dEs:'Desayuno y almuerzo incluidos cada día, con abundantes vegetales, legumbres, granos, frutas — y proteína animal de calidad si lo deseas.' },
+    { img:'assets/img/yoga-3.jpg', ic:'<path d="M13 2 3 14h7l-1 8 10-12h-7z"/>', en:'Functional training', es:'Entrenamiento funcional', dEn:'Smart movement, cardio, strength, and coordination for your physical health and mental rest.', dEs:'Movimiento inteligente, cardio, fuerza y coordinación para tu salud física y descanso mental.' },
+    { img:'assets/img/amb-4.jpg', ic:'<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18M3 12a9 9 0 0 1 18 0"/>', en:'Feldenkrais Method®', es:'Método Feldenkrais®', dEn:'Awareness Through Movement for cultivating better postural and movement habits, flexibility, and agility, as well as for recovery from injuries and musculoskeletal issues.', dEs:'Autoconciencia a través del movimiento para el cultivo de mejores hábitos posturales y de movimiento, flexibilidad, agilidad y recuperación de lesiones y problemas osteomusculares.' },
+    { img:'assets/img/yoga-1.jpg', ic:'<path d="M12 3c3 0 5 2 5 5 0 2-1 3-2 5s-1 3-3 3-2-1-3-3-2-3-2-5c0-3 2-5 5-5Z"/><path d="M12 16v5M9 21h6"/>', en:'Hatha Yoga', es:'Hatha Yoga', dEn:'Combines movement, postures, breathing, and visualization to strengthen the body and relax the mind. Ideal for all experience levels.', dEs:'Hatha Yoga Combina movimiento, posturas, respiración y visualización para fortalecer el cuerpo y relajar la mente. Ideal para todos los niveles de experiencia.' },
+    { img:'assets/img/amb-5.jpg', ic:'<path d="M3 12c4-5 14-5 18 0-4 5-14 5-18 0Z"/><circle cx="12" cy="12" r="2.4"/>', en:'Breathwork', es:'Respiración', dEn:'Conscious breathing practices for physical, emotional and mind balance.', dEs:'Prácticas de respiración consciente para equilibrar cuerpo, mente y emociones.' }
+  ];
+  ADDITIONAL_SERVICES = [
+    { img:'assets/img/yoga-2.jpg', ic:'<path d="M12 4v16M8 8c-2 0-4 1.5-4 4s2 4 4 4M16 8c2 0 4 1.5 4 4s-2 4-4 4"/>', en:'Pilates', es:'Pilates', dEn:'Core strength and flexibility through controlled movement.', dEs:'Fuerza del core y flexibilidad con movimientos controlados.' },
+    { img:'assets/img/garden-1.jpg', ic:'<circle cx="12" cy="6" r="2.5"/><path d="M12 8.5V15M12 15l-4 6M12 15l4 6M7 11l5 1 5-1"/>', en:'AeroRumba', es:'AeroRumba', dEn:'Energetic aerobic dance with latin rhythms— fitness that boost your mood and help you burn calories.', dEs:'Baile aeróbico enérgico con ritmos latinos— ejercicio que estimulan tu estado de ánimo y te ayudan a quemar calorías.' },
+    { img:'assets/img/amb-7.jpg', ic:'<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18M3 12a9 9 0 0 1 18 0"/>', en:'IF: Functional Integration', es:'IF: Integración Funcional', dEn:'It is an individual Feldenkrais Method session. The teacher guides the student through gentle touch and light movements to improve posture, reduce tension, relieve pain, and teach the nervous system new, more comfortable, and efficient movement patterns.', dEs:'Es una sesión individual del Método Feldenkrais. El profesor guía al estudiante a través de toques suaves y movimientos ligeros para mejorar la postura, reducir la tensión, aliviar el dolor y enseñar al sistema nervioso nuevos patrones de movimiento más cómodos y eficientes.' },
+    { img:'assets/img/iwell-2.jpg', ic:'<path d="M6 5v14M18 5v14M4 7h4M16 7h4M4 17h4M16 17h4M6 12h12"/>', en:'Personalized weight training', es:'Entrenamiento de pesas personalizado', dEn:'This process helps build strength, increase muscle size, burn fat, and maintain bone health.', dEs:'Este proceso ayuda a desarrollar fuerza, aumentar el tamaño muscular, quemar grasa y mantener la salud ósea.' },
+    { img:'assets/img/amb-12.jpg', ic:'<path d="M9 18V5l12-2v13"/><path d="M6 21a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/><path d="M18 19a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/>', en:'Salsa and Latin rhythm classes', es:'Clases de salsa y ritmos latinos', dEn:'Salsa and Latin rhythm classes offer a holistic approach to physical and mental health. They serve as a complete aerobic workout, raising your heart rate, strengthening your cardiovascular system, and improving motor coordination—all while you have fun.', dEs:'Las clases de salsa y ritmos latinos ofrecen un enfoque holístico para la salud física y mental. Sirven como un entrenamiento aeróbico completo, elevando su frecuencia cardíaca, fortaleciendo su sistema cardiovascular y mejorando la coordinación motora, todo mientras se divierte.' }
+  ];
+
+  I18N = {
+    es:{
+      nav_what:'Qué es I-Well', nav_benefits:'Beneficios', nav_stay:'Alojamiento', nav_reviews:'Reseñas', nav_location:'Ubicación', nav_book:'Consultar',
+      hero_reviews:'687 reseñas en Google', hero_t1:'La vida', hero_t2:'que mereces',
+      hero_sub:'Una feliz y profunda experiencia de transformación para tu vida, tu salud y tu bienestar integral, todo en un oasis ubicado en Cali, una de las ciudades más alegres y amables de latinoamérica.',
+      hero_cta1:'Consulta disponibilidad', hero_cta2:'Descubre I-Well', hero_scroll:'Baja',
+      bar_in:'LLEGADA', bar_out:'SALIDA', bar_add:'Agregar fecha', bar_guests:'VIAJEROS', bar_go:'Comprobar disponibilidad', bar_hint:'Toca para elegir tus fechas — primero llegada, luego salida',
+      what_eyebrow:'Nuestra filosofía', what_title:'Más que una estadía.', what_title2:'Una forma de vivir.',
+      what_p1:'<ul style="margin-left:20px;display:flex;flex-direction:column;gap:12px"><li><strong>Ahorras dinero</strong> mientras te alojas en un entorno cómodo, seguro y ecológico.</li><li><strong>Alimentación nutritiva</strong>, aprendizaje y mejores hábitos físicos y mentales.</li><li><strong>Mejoras tu salud</strong>, cultivando y/o recuperando tu juventud y longevidad.</li><li>Acceso a un <strong>equipo excelente de profesionales</strong> del bienestar.</li></ul>',
+      what_p2:'Es una experiencia radical que cambia la vida: un programa que combina bienestar físico y mental, hábitos saludables y una conexión profunda contigo mismo.',
+      what_s1:'Años de tradición', what_s2:'Reseñas 5 estrellas', what_s3:'Noches, a tu ritmo',
+      what_card:'Descansa. Muévete. Transfórmate.', what_card2:'Un ritmo diario de bienestar',
+      ben_eyebrow:'Incluido en tu estadía', ben_title:'Un plan diario completo para tu bienestar',
+      ben_sub:'Además de comidas saludables completas y deliciosas, cada día trae un poderoso conjunto de prácticas para cuerpo y mente.',
+      ben1_t:'Alojamiento privado', ben1_d:'Cómodos apartaestudios amoblados rodeados de hermosos jardines.',
+      ben2_t:'Comidas saludables', ben2_d:'Abundantes vegetales, legumbres, granos, frutas — y proteína animal de calidad si lo deseas.',
+      ben3_t:'Movimiento diario', ben3_d:'Hábitos de movimiento saludable combinando cardio, fuerza y coordinación.',
+      ben4_t:'Método Feldenkrais®', ben4_d:'Autoconciencia a través del movimiento para una conexión corporal profunda.',
+      ben5_t:'Hatha Yoga', ben5_d:'Relajación y meditación guiadas por expertos certificados.',
+      ben6_t:'Respiración', ben6_d:'Prácticas de respiración consciente para equilibrar cuerpo y mente.',
+      ben7_t:'Método Pilates', ben7_d:'Fuerza del core y flexibilidad con movimientos controlados.',
+      ben8_t:'AeroRumba', ben8_d:'Baile aeróbico enérgico — ejercicio que se siente como alegría.',
+      ben9_t:'Jardinería', ben9_d:'Reconéctate con la naturaleza cultivando con tus manos.',
+      stay_badge:'Estadía destacada',
+      stay_eyebrow:'Dónde te alojarás', stay_title:'Tu habitación,', stay_title2:'elegida para ti.',
+      stay_sub:'Tenemos varias habitaciones privadas en el jardín — luminosas, tranquilas y totalmente equipadas. Elige tus fechas y te asignamos la mejor disponible para tu estadía.',
+      node_acc:'Alojamiento<br>privado', node_meals:'Comidas<br>saludables', node_func:'Entrenamiento<br>funcional', node_feld:'Método<br>Feldenkrais', node_yoga:'Hatha<br>Yoga', node_breath:'Trabajo de<br>respiración',
+      stay_inc_l:'Incluye', stay_inc_v:'Desayuno, almuerzo y 3 clases diarias (Yoga · Método Feldenkrais · Breathwork · Pilates)',
+      stay_stay_l:'Estancia', stay_stay_v:'Mínimo 3 noches',
+      stay_pet_l:'Mascota', stay_pet_v:'Pet friendly · sin restricciones',
+      stay_price_note:'/ noche', stay_cta:'Consultar disponibilidad →',
+      rsv_eyebrow:'Consulta en línea', rsv_title:'Consulta disponibilidad para tus fechas',
+      rsv_sub:'Completa tus datos para consultar disponibilidad. Te contactaremos por WhatsApp con las mejores opciones y posibles descuentos para tus fechas. ¡El abono para confirmar es de solo 10% y el resto se paga al llegar!',
+      rsv_dep_t:'Disponibilidad & Descuentos', rsv_dep_d:'No se realizará ningún cobro ahora. Al contactarnos por WhatsApp verificaremos tus fechas, aplicaremos los <strong>descuentos especiales</strong> disponibles para ti y te daremos el total final. Solo abonas el 10% si decides confirmar tu lugar.',
+      rsv_tr1:'Cancelación gratuita', rsv_tr2:'Pagas al llegar', rsv_tr3:'Confirmación por WhatsApp',
+      stay_full:'Confort total', stay_aa_type:'Tipo AA', stay_aa_name:'La experiencia completa', stay_aa_sub:'Cada comodidad para tu bienestar.',
+      stay_a_type:'Tipo A', stay_a_name:'Las comodidades esenciales', stay_a_sub:'Todo lo que necesitas para una estadía tranquila.',
+      am_bed:'Cama doble', am_bath:'Baño privado con agua caliente', am_ac:'TV y aire acondicionado', am_kitchen:'Cocina equipada', am_clean:'Aseo semanal', am_desk:'Escritorio', am_wifi:'Wi-Fi', am_park:'Parqueadero',
+      stay_aa_note:'Incluye aseo semanal, cambio de sábanas, limpieza general y todos los productos de limpieza necesarios.',
+      stay_a_note:'Los productos de cuidado personal (jabón, shampoo, papel higiénico, etc.) no se incluyen en este tipo.',
+      meal_eyebrow:'Nutre tu cuerpo', meal_title:'Comida fresca, de nuestro huerto',
+      meal_sub:'Desayunos y almuerzos completos y saludables cada día — ingredientes naturales, frescos y locales. Opciones veganas, vegetarianas y omnívoras.',
+      meal1:'Ensalada de frutas con miel', meal2:'Arepas y huevos pericos', meal3:'Bowls nutritivos', meal4:'De nuestro propio huerto',
+      meal_tag_v:'Vegano · Fresco', meal_tag_c:'Colombiano · Desayuno', meal_tag_b:'Balanceado · Nutritivo', meal_tag_g:'Del huerto a la mesa', swipe:'Desliza para ver más',
+      who_eyebrow:'Para quién es', who_title:'Para quienes buscan un cambio',
+      who_sub:'Ahorra en alojamiento y comida mientras cultivas tu bienestar — sea cual sea el momento de tu vida.',
+      who1_t:'Jubilados que buscan descanso consciente', who1_d:'Un lugar seguro, cálido y accesible para reconectar, recuperar movilidad y mejorar la calidad de vida.',
+      who2_t:'Nómadas digitales que buscan equilibrio', who2_d:'Combina la productividad remota con naturaleza, tranquilidad y un estilo de vida más saludable.',
+      who3_t:'Extranjeros que quieren vivir en Cali', who3_d:'Estadías cortas o largas en un lugar seguro, hermoso y accesible, con clima cálido y cultura auténtica.',
+      who4_t:'Personas agotadas por el estrés urbano', who4_d:'Una pausa física y mental para recuperar energía, claridad y bienestar emocional.',
+      who5_t:'Buscadores de experiencias conscientes', who5_d:'Para quienes aman el yoga, la meditación, la respiración, la quietud y la comida sana.',
+      who6_t:'Personas en transición o recuperación', who6_d:'Un entorno seguro y sanador enfocado en el bienestar integral — sin ser clínico.',
+      who7_t:'Creativos y emprendedores', who7_d:'Inspiración, espacios tranquilos y un ritmo estable para crear, pensar y producir.',
+      who8_t:'Parejas que buscan reconectar', who8_d:'Días tranquilos, prácticas conscientes, naturaleza y buena comida para reconectar.',
+      loc_eyebrow:'Un paraíso natural', loc_title:'Ishka Center, suroccidente de Cali',
+      loc_p1:'El centro de bienestar más visitado del suroccidente colombiano, con más de 20 años de tradición — en la zona más segura de Cali, lejos del ruido, donde abundan la naturaleza, el aire fresco y la calma.',
+      loc_f1:'Barrio Pance, Cali — Valle del Cauca, Colombia', loc_f2:'A 15 min de la Fundación Valle del Lili — una de las mejores clínicas de Latinoamérica', loc_f3:'La escuela de bienestar con más reseñas de la región', loc_cta:'Abrir en Google Maps →',
+      team_eyebrow:'Guiado por maestros', team_title:'Tus instructores',
+      team1_r:'Yoga Tantra Kundalini · Feldenkrais', team1_b:'16 años formando profesores de yoga — más de 400 estudiantes en 30+ cursos por el mundo. Creador del Ishka Kankueb Yoga, que une meditación con biomecánica funcional.',
+      team2_r:'Educación Física · Pilates', team2_b:'Instructora de Ishka Kankueb Yoga especializada en biomecánica, con 10 años en entrenamiento funcional enfocado en la conciencia corporal y el bienestar integral.',
+      team3_r:'Yoga · Movimiento somático · Respiración', team3_b:'Nacido en Bogotá, formado en Francia. Instructor de Ishka Kankueb Yoga, meditación, movimiento somático (IKYnesis), danza Kankueb y técnicas de respiración.',
+      rev_count:'702 reseñas en Google', rev_title:'Amado por huéspedes de todo el mundo',
+      rev_eyebrow:'Huéspedes reales, palabras reales', rev_verified:'Estadía verificada', rev_all:'Ver todas las reseñas en Google',
+      ig_eyebrow:'Sigue el viaje', ig_cta:'Seguir en Instagram', ig_note:'Feed de ejemplo — reemplázalo con la galería real de Instagram cuando esté lista.',
+      price_eyebrow:'Estadías flexibles', price_t1:'Regálate', price_t2:'I-Well',
+      price_sub:'Quédate 3 noches o un mes entero. De lunes a sábado te espera un programa completo de clases — tómalas todas o elige las que tu alma te pida.',
+      price_s1:'Elige tus fechas — desde 3 noches', price_s2:'Aparta con solo el 10% hoy', price_s3:'Paga el resto en efectivo al llegar',
+      price_from:'Desde, por noche', price_min:'mínimo 3 noches', price_pay:'', price_cta:'Consulta disponibilidad', price_cta2:'Escríbenos por WhatsApp',
+      band_quote:'"No vienes a I-Well a escapar de tu vida — vienes a recordar cómo vivirla."',
+      stay_superhost:'Superhost de Airbnb · 5 estadías únicas', stay_ratingcount:'· 210+ reseñas en Airbnb', stay_guestfav:'Favorita de huéspedes', stay_allairbnb:'Ver todas las estadías en Airbnb →',
+      st_reviews:'Reseñas 5 estrellas', st_years:'Años de tradición', st_response:'Respuesta del anfitrión', st_practices:'Prácticas diarias',
+      host_eyebrow:'Conoce a tu anfitrión', host_super:'Superhost de Airbnb · Verificado',
+      host_p1:'Me apasiona recibir a quienes visitan Cali en mis alojamientos cómodos y hermosos. Me encanta bailar —especialmente Salsa—, ir al cine, meditar y practicar yoga y Feldenkrais.',
+      host_p2:'Por trabajo y vocación comparto clases y talleres de mi propio sistema de yoga —Ishka Kankueb Yoga— en mi centro de bienestar, donde también enseño el Método Feldenkrais, del cual soy maestro certificado. Soy creador de contenido de yoga en YouTube y recibo y sirvo a cada persona con un corazón generoso y alegre.',
+      host_s1:'Reseñas en Airbnb', host_s2:'Calificación general', host_s3:'Años como anfitrión',
+      host_cta:'Hospédate con Carlos', host_cta2:'Ver perfil de Airbnb →',
+      video_eyebrow:'Descubre Ishka Center', video_title:'Míralo por ti mismo', video_sub:'Un recorrido por el oasis de bienestar donde vivirás tu transformación.', video_soon:'Comercial próximamente', video_cta:'Consulta disponibilidad',
+      foot_tag:'El centro de bienestar más visitado del suroccidente colombiano. Transformando vidas desde 2005.',
+      foot_contact:'Contacto', foot_location:'Ubicación', foot_rights:'Todos los derechos reservados.', foot_slogan:'The Life You Deserve',
+      rs_step1:'Paso 1 de 4', rs_t1:'Diseña tu estadía', rs_d1:'Elige tu apartamento y cuánto te quedarás.',
+      rs_aa:'TV, A/C y todo el confort', rs_a:'Las comodidades esenciales',
+      rs_nights:'Noches', rs_nights_sub:'Mínimo 3 noches', rs_guests:'Huéspedes',
+      rs_step2:'Paso 2 de 4', rs_t2:'Cuéntanos de ti', rs_d2:'Para preparar tu bienvenida más cálida.',
+      rs_name:'Nombre completo', rs_email:'Correo', rs_country:'País', ph_name:'Ana Pérez', ph_email:'ana@correo.com', ph_country:'Estados Unidos',
+      rs_step3:'Paso 3 de 4', rs_t3:'Tus preferencias', rs_d3:'Adaptaremos las comidas y prácticas a ti.',
+      rs_diet:'Alimentación', diet_vegan:'Vegana', diet_veg:'Vegetariana', diet_omni:'Omnívora',
+      rs_interest:'Lo que más me atrae…', int_breath:'Respiración', int_med:'Meditación', int_garden:'Jardinería',
+      rs_step4:'Paso 4 de 4', rs_t4:'Pago seguro', rs_d4:'Confirma y reserva tu transformación.',
+      rs_total:'Total', rs_card:'Número de tarjeta', rs_exp:'Vence', rs_cvc:'CVC', rs_secure:'Cifrado y seguro · Powered by Stripe',
+      rs_done_t:'Consulta en proceso', rs_conf:'Confirmación', rs_done_cta:'Listo',
+      rs_back:'Atrás', rs_next:'Continuar'
+    }
+  };
+
+  REVIEWS = [
+    { ini:'M', name:'Marie L.', loc:'France', slot:'rev-1', date:'2 weeks ago', dateEs:'hace 2 semanas', en:'The most healing week of my life. Waking to birdsong, yoga at dawn, food from the garden — I left lighter in every sense.', es:'La semana más sanadora de mi vida. Despertar con el canto de los pájaros, yoga al amanecer, comida del huerto — me fui más ligera en todo sentido.' },
+    { ini:'J', name:'James P.', loc:'Canada', slot:'rev-2', date:'1 month ago', dateEs:'hace 1 mes', en:'As a digital nomad I found the perfect balance — fast Wi-Fi, total calm, and a body that finally felt good again. Kan is a true master.', es:'Como nómada digital encontré el equilibrio perfecto — buen Wi-Fi, calma total y un cuerpo que por fin se sintió bien. Kan es un verdadero maestro.' },
+    { ini:'S', name:'Sofia R.', loc:'España', slot:'rev-3', date:'3 weeks ago', dateEs:'hace 3 semanas', en:'Ishka is magic. The instructors care deeply, the gardens are a paradise, and the price is honestly unbelievable for what you receive.', es:'Ishka es mágico. Los instructores cuidan de verdad, los jardines son un paraíso y el precio es increíble para lo que recibes.' },
+    { ini:'A', name:'Andrew K.', loc:'USA', slot:'rev-4', date:'2 months ago', dateEs:'hace 2 meses', en:'I came exhausted by city stress and left with clarity I hadn\u2019t felt in years. The breathwork sessions alone were worth the trip.', es:'Llegué agotado por el estrés de la ciudad y me fui con una claridad que no sentía en años. Solo las sesiones de respiración valieron el viaje.' },
+    { ini:'L', name:'Lena M.', loc:'Deutschland', slot:'rev-5', date:'1 month ago', dateEs:'hace 1 mes', en:'A safe, warm, beautiful place. I extended my stay twice. It felt less like a retreat and more like coming home to myself.', es:'Un lugar seguro, cálido y hermoso. Extendí mi estadía dos veces. Se sintió menos como un retiro y más como volver a mí misma.' },
+    { ini:'C', name:'Camila T.', loc:'Chile', slot:'rev-6', date:'5 weeks ago', dateEs:'hace 5 semanas', en:'Everything is thought through with love — the meals, the classes, the silence. My partner and I reconnected here in a way we hadn\u2019t in years.', es:'Todo está pensado con amor — las comidas, las clases, el silencio. Mi pareja y yo reconectamos aquí como no lo hacíamos en años.' }
+  ];
+
+  get t(){ return this.state.lang==='es' ? this.I18N.es : null; }
+
+  renderVals(){
+    const lang = this.state.lang; const es = lang==='es';
+    const _avc=['#6E8A63','#B0794C','#8E82A8','#C6982F','#7A9E7E','#A86A54','#9A86B0','#C08A3E'];
+    const reviews = this.REVIEWS.map((r,i)=>({ ini:r.ini, name:r.name, loc:r.loc, slot:r.slot, date: es?r.dateEs:r.date, avc:_avc[i%_avc.length], quote:'“'+ (lang==='es'?r.es:r.en) +'”' }));
+    const rooms = this.ROOMS.map(r=>({
+      id:r.id, name:r.name, img:r.img, rating:r.rating, featured:r.featured,
+      priceLabel:'$'+r.price, per: es?'/ noche':'/ night',
+      tag: es?r.tagEs:r.tagEn, desc: es?r.descEs:r.descEn, chips: es?r.chipsEs:r.chipsEn,
+      cta: es?'Consultar':'Check availability', airbnb:r.airbnb
+    }));
+    return {
+      reviews, rooms,
+      setEn:()=>this.setLang('en'), setEs:()=>this.setLang('es'),
+      toggleTheme:()=>this.toggleTheme(), toggleMenu:()=>this.toggleMenu(), closeMenu:()=>this.setMenu(false),
+      openResv:()=>this.openResv(), closeResv:()=>this.closeResv(),
+      revPrev:()=>this.scrollRev(-1), revNext:()=>this.scrollRev(1)
+    };
+  }
+
+  componentDidMount(){
+    this.form = { name:'', email:'', country:'' };
+    this.root = document.querySelector('[data-root]');
+    try{
+      const th = localStorage.getItem('iwell_theme'); if(th) this.state.theme=th;
+      const lg = localStorage.getItem('iwell_lang'); if(lg) this.state.lang=lg;
+    }catch(e){}
+    this.applyTheme(this.state.theme);
+    if(this.state.lang==='es'){ this.applyLang('es'); this.swapReviews(); }
+    this.setLangBtns();
+    this.setupHeader();
+    this.setupReveal();
+    this.setupResponsive();
+    this.renderRoomCards();
+    this.renderMeals();
+    this.renderPersonas();
+    this.setupHostSlider();
+    this.setupStaySlider();
+    this.enhanceBenefits(); this.enhanceAdditionalServices();
+    this.setupRipple();
+    this.wzInit();
+  }
+
+  // ---- THEME ----
+  themeVars(dark){
+    return dark ? {
+      '--bg':'#17150F','--bg2':'#1F1C14','--surface':'#221E16','--surface2':'#2E2A1F','--ink':'#F1EBDD','--ink2':'#BEB4A0','--ink3':'#8E8676',
+      '--brand':'#8B9A6A','--lav':'#D6A87A','--lav2':'#E7CBA0','--sage':'#9CB88C','--sage2':'#B9D0AC','--line':'rgba(255,255,255,.13)','--line2':'rgba(255,255,255,.06)',
+      '--headerbg':'rgba(23,21,15,.82)','--shadow':'0 24px 60px -24px rgba(0,0,0,.7)','--gold':'#E0B84F'
+    } : {
+      '--bg':'#F5F0E6','--bg2':'#ECE4D5','--surface':'#FFFDF8','--surface2':'#F2EBDD','--ink':'#33302A','--ink2':'#665F52','--ink3':'#9A9081',
+      '--brand':'#5E6E4C','--lav':'#B0794C','--lav2':'#D8B78A','--sage':'#6E8A63','--sage2':'#A7C09B','--line':'rgba(51,48,42,.12)','--line2':'rgba(51,48,42,.06)',
+      '--headerbg':'rgba(245,240,230,.82)','--shadow':'0 20px 50px -22px rgba(51,45,32,.28)','--gold':'#C6982F'
+    };
+  }
+  applyTheme(theme){
+    const dark = theme==='dark';
+    const v = this.themeVars(dark);
+    Object.keys(v).forEach(k=>this.root.style.setProperty(k,v[k]));
+    const logo = dark ? 'assets/logo-iwell-cream.png' : 'assets/logo-iwell-transparent.png';
+    this.root.querySelectorAll('[data-logo]').forEach(im=>im.setAttribute('src',logo));
+    const ico = this.root.querySelector('[data-theme-ico]');
+    if(ico) ico.innerHTML = dark
+      ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5Z"/></svg>'
+      : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>';
+    this.styleTicks();
+  }
+  toggleTheme(){
+    const next = this.state.theme==='dark' ? 'light' : 'dark';
+    this.state.theme=next; try{localStorage.setItem('iwell_theme',next);}catch(e){}
+    this.applyTheme(next);
+  }
+  styleTicks(){
+    this.root.querySelectorAll('[data-tick]').forEach(sp=>{
+      sp.style.cssText='flex:0 0 18px;width:18px;height:18px;border-radius:50%;display:inline-grid;place-items:center;background:var(--sage);color:#fff';
+      sp.innerHTML='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>';
+    });
+  }
+
+  // ---- LANG ----
+  setLang(lang){
+    if(lang===this.state.lang) return;
+    this.state.lang=lang; try{localStorage.setItem('iwell_lang',lang);}catch(e){}
+    this.applyLang(lang); this.swapReviews(); this.renderRoomCards(); this.renderMeals(); this.renderPersonas(); this.enhanceBenefits(); this.enhanceAdditionalServices(); this.setLangBtns(); this.updateSummary();
+  }
+  swapReviews(){
+    const es=this.state.lang==='es';
+    this.root.querySelectorAll('[data-revscroll] blockquote').forEach((b,i)=>{ const r=this.REVIEWS[i]; if(r) b.textContent='\u201C'+(es?r.es:r.en)+'\u201D'; });
+  }
+  applyLang(lang){
+    const es = lang==='es';
+    this.root.querySelectorAll('[data-i18n]').forEach(el=>{
+      const key = el.getAttribute('data-i18n');
+      if(el._en===undefined) el._en = el.innerHTML;
+      el.innerHTML = es ? (this.I18N.es[key] ?? el._en) : el._en;
+    });
+    this.root.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+      const key = el.getAttribute('data-i18n-ph');
+      if(el._enph===undefined) el._enph = el.getAttribute('placeholder')||'';
+      el.setAttribute('placeholder', es ? (this.I18N.es[key] ?? el._enph) : el._enph);
+    });
+    document.documentElement.lang = lang;
+    this.updateSummary();
+  }
+  setLangBtns(){
+    this.root.querySelectorAll('[data-lang-btn]').forEach(b=>{
+      const on = b.getAttribute('data-lang-btn')===this.state.lang;
+      b.style.color = on ? '#fff' : 'var(--ink2)';
+      b.style.background = on ? 'var(--brand)' : 'transparent';
+    });
+  }
+
+  // ---- HEADER / MENU ----
+  setupHeader(){
+    const hdr = this.root.querySelector('[data-hdr]');
+    const book = this.root.querySelector('[data-bookbtn]');
+    const onScroll=()=>{
+      const s = window.scrollY>40;
+      hdr.style.background = s ? 'var(--headerbg)' : 'transparent';
+      hdr.style.backdropFilter = s ? 'blur(14px)' : 'none';
+      hdr.style.borderColor = s ? 'var(--line)' : 'transparent';
+      hdr.style.padding = s ? '10px 0' : '16px 0';
+      hdr.style.boxShadow = s ? 'var(--shadow)' : 'none';
+      if(book) book.style.display = (s && !this._mobile) ? 'inline-flex' : 'none';
+      // nav link color legibility on transparent hero
+      const navc = s ? 'var(--ink2)' : 'rgba(255,255,255,.85)';
+      this.root.querySelectorAll('[data-desknav] a').forEach(a=>a.style.color=navc);
+    };
+    this._onScroll=onScroll; window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  }
+  toggleMenu(){ const mn=this.root.querySelector('[data-mobilenav]'); const open=mn.style.maxHeight&&mn.style.maxHeight!=='0px'; this.setMenu(!open); }
+  setMenu(open){ const mn=this.root.querySelector('[data-mobilenav]'); mn.style.maxHeight = open ? '400px' : '0'; }
+
+  // ---- RESPONSIVE ----
+  setupResponsive(){
+    const apply=()=>{
+      const m = window.innerWidth < 900;
+      this._mobile=m;
+      this.root.querySelector('[data-desknav]').style.display = m ? 'none' : 'flex';
+      this.root.querySelector('[data-menubtn]').style.display = m ? 'grid' : 'none';
+      this.root.querySelector('[data-mobilenav]').style.display = m ? 'block' : 'none';
+      if(!m) this.setMenu(false);
+      const sw = window.innerWidth < 760 ? 'flex' : 'none';
+      const h1=this.root.querySelector('[data-swipehint]'); if(h1) h1.style.display=sw;
+      const h2=this.root.querySelector('[data-swipehint2]'); if(h2) h2.style.display=sw;
+      const rn=this.root.querySelector('[data-revnav]'); if(rn) rn.style.display = window.innerWidth<760 ? 'none':'flex';
+      const mealMobile = window.innerWidth < 760;
+      const mg=this.root.querySelector('[data-mealgrid]'); if(mg) mg.style.display = mealMobile ? 'none' : 'grid';
+      const ms=this.root.querySelector('[data-mealscroll]'); if(ms) ms.style.display = mealMobile ? 'flex' : 'none';
+      const hs=this.root.querySelector('[data-hostswipe]'); if(hs) hs.style.display = mealMobile ? 'flex' : 'none';
+      const hp=this.root.querySelector('[data-hostprev]'), hn=this.root.querySelector('[data-hostnext]');
+      if(hp) hp.style.display = mealMobile ? 'none' : 'grid';
+      if(hn) hn.style.display = mealMobile ? 'none' : 'grid';
+      if(this._onScroll) this._onScroll();
+    };
+    this._onResize=apply; window.addEventListener('resize',apply); apply();
+  }
+
+  // ---- REVEAL ----
+  setupReveal(){
+    const els=[...this.root.querySelectorAll('[data-reveal]')];
+    if(!('IntersectionObserver' in window)){ els.forEach(e=>{e.style.opacity=1;e.style.transform='none';}); return; }
+    const io=new IntersectionObserver((ents)=>{
+      ents.forEach(en=>{ if(en.isIntersecting){ en.target.style.opacity=1; en.target.style.transform='none'; io.unobserve(en.target);} });
+    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(e=>io.observe(e));
+    setTimeout(()=>els.forEach(e=>{ if(getComputedStyle(e).opacity==='0'){e.style.opacity=1;e.style.transform='none';} }),2500);
+  }
+
+  // ---- REVIEWS SCROLL ----
+  scrollRev(dir){
+    const sc=this.root.querySelector('[data-revscroll]'); if(!sc) return;
+    const card=sc.querySelector('div'); const w=card?card.getBoundingClientRect().width+18:380;
+    sc.scrollBy({left:dir*w,behavior:'smooth'});
+  }
+
+  // ---- RESERVE / BOOKING WIZARD (Caravan-style) ----
+  setupStaySlider(){
+    const track=this.root.querySelector('[data-staytrack]'); if(!track) return;
+    const dotsW=this.root.querySelector('[data-staydots]');
+    const imgs=[...track.children]; const n=imgs.length; if(!n) return; let idx=0, timer;
+    if(dotsW) dotsW.innerHTML='';
+    const go=(i,manual)=>{ idx=(i+n)%n; track.style.transform='translateX(-'+(idx*100)+'%)'; dots.forEach((d,k)=>{ d.style.background=k===idx?'#E6C169':'rgba(255,255,255,.6)'; d.style.width=k===idx?'22px':'8px'; }); if(manual){ clearInterval(timer); timer=setInterval(()=>go(idx+1),4500); } };
+    const dots=imgs.map((_,i)=>{ const d=document.createElement('button'); d.type='button'; d.style.cssText='width:8px;height:8px;border-radius:100px;border:none;cursor:pointer;padding:0;background:rgba(255,255,255,.6);transition:all .3s'; d.addEventListener('click',()=>go(i,true)); if(dotsW)dotsW.appendChild(d); return d; });
+    go(0); timer=setInterval(()=>go(idx+1),4500);
+  }
+  wzInit(){
+    const _d0=new Date(); _d0.setHours(0,0,0,0); const _ci=new Date(_d0.getTime()+7*86400000); const _co=new Date(_ci.getTime()+3*86400000);
+    this.wz={ step:0, guests:1, pet:false, checkin:_ci, checkout:_co, autoOut:true, tier:'complete', extras:[], name:'', cc:'+57', phone:'', email:'', notes:'', calMonth:new Date(_ci.getFullYear(),_ci.getMonth(),1) };
+    this.WA='573016859718';
+    this.TIERS=[
+      {id:'complete', es:'La experiencia completa', en:'The complete experience', tagEs:'CONFORT TOTAL', tagEn:'FULL COMFORT', price:295000, subEs:'Todo el confort para tu bienestar.', subEn:'Every comfort for your wellbeing.', fEs:['Cama doble','Baño privado agua caliente','Aire / ventilador','Cocina equipada','Limpieza semanal','Wi-Fi','Escritorio','Parqueo'], fEn:['Double bed','Private hot-water bath','A/C or fan','Equipped kitchen','Weekly cleaning','Wi-Fi','Desk','Parking']},
+      {id:'essential', es:'Lo esencial', en:'The essential comforts', tagEs:'ESENCIAL', tagEn:'ESSENTIAL', price:295000, subEs:'Todo lo necesario para un descanso pleno.', subEn:'Everything you need for a restful stay.', fEs:['Cama doble','Baño privado agua caliente','Cocina equipada','Limpieza semanal','Escritorio','Wi-Fi','Parqueo'], fEn:['Double bed','Private hot-water bath','Equipped kitchen','Weekly cleaning','Desk','Wi-Fi','Parking']}
+    ];
+    this.EXTRAS=[
+      {k:'yoga', es:'Clases de yoga diarias', en:'Daily yoga classes'},
+      {k:'medit', es:'Meditación y respiración', en:'Meditation & breathwork'},
+      {k:'breakfast', es:'Desayuno orgánico', en:'Organic breakfast'},
+      {k:'meals', es:'Plan de comidas completo', en:'Full meal plan'},
+      {k:'garden', es:'Tour por la huerta', en:'Garden tour'},
+      {k:'ceremony', es:'Ceremonia / temazcal', en:'Ceremony / temazcal'}
+    ];
+    this.CC=[['🇨🇴','+57'],['🇺🇸','+1'],['🇲🇽','+52'],['🇦🇷','+54'],['🇨🇱','+56'],['🇵🇪','+51'],['🇧🇷','+55'],['🇪🇸','+34'],['🇩🇪','+49'],['🇫🇷','+33'],['🇬🇧','+44'],['🇨🇦','+1']];
+    this.wzBind();
+    this.wzRender();
+  }
+  wzT(es,en){ return this.state.lang==='es'?es:en; }
+  wzBind(){
+    const q=(s)=>this.root.querySelector(s);
+    this.root.querySelectorAll('[data-wzclose]').forEach(b=>b.addEventListener('click',()=>this.closeResv()));
+    const back=q('[data-wzback]'); if(back) back.addEventListener('click',()=>this.wzGo(this.wz.step-1));
+    const next=q('[data-wznext]'); if(next) next.addEventListener('click',()=>this.wzNext());
+    this.root.querySelectorAll('[data-bar-dates]').forEach(b=>b.addEventListener('click',()=>this.openResv(0)));
+    const bg=q('[data-bar-guests]'); if(bg) bg.addEventListener('click',()=>this.openResv(0));
+    const bgo=q('[data-bar-go]'); if(bgo) bgo.addEventListener('click',()=>this.openResv(0));
+    this.wzSyncBar();
+    if(!this._wzKey){ this._wzKey=true; document.addEventListener('keydown',(e)=>{ if(e.key==='Escape' && this._wzOpen) this.closeResv(); }); }
+  }
+  openResv(step){ this.wz.step=(typeof step==='number')?Math.max(0,Math.min(1,step)):0; this._wzOpen=true; this.setMenu(false); const m=this.root.querySelector('[data-resv]'); if(m) m.style.display='block'; document.body.style.overflow='hidden'; const wa=this.root.querySelector('[data-wa]'); if(wa) wa.style.display='none'; this.wzRender(); }
+  openResvRoom(id){ this.openResv(0); }
+  closeResv(){ this._wzOpen=false; const m=this.root.querySelector('[data-resv]'); if(m) m.style.display='none'; document.body.style.overflow=''; const wa=this.root.querySelector('[data-wa]'); if(wa) wa.style.display='grid'; this.wz.step=0; this.wzSyncBar(); }
+  wzSyncBar(){ const w=this.wz; if(!w) return; const set=(sel,v)=>{const e=this.root.querySelector(sel); if(e){ e.textContent=v; e.removeAttribute('data-i18n'); }}; if(w.checkin) set('[data-bar-in]',this.wzFmt(w.checkin)); if(w.checkout) set('[data-bar-out]',this.wzFmt(w.checkout)); set('[data-bar-g]', w.guests+this.wzT(' viajero',' guest')+(w.guests>1?'s':'')); }
+  wzNights(){ const w=this.wz; if(w.checkin&&w.checkout){ return Math.max(0,Math.round((w.checkout-w.checkin)/86400000)); } return 0; }
+  wzTier(){ return this.TIERS.find(t=>t.id===this.wz.tier)||this.TIERS[0]; }
+  wzTotal(){ const n=this.wzNights(); return n>0? this.wzTier().price*this.wz.guests*n : 0; }
+  wzDeposit(){ return Math.round(this.wzTotal()*0.10); }
+  wzMoney(n){ return '$'+n.toLocaleString('es-CO'); }
+  wzFmt(d){ if(!d) return '—'; return d.toLocaleDateString(this.state.lang==='es'?'es-CO':'en-US',{day:'2-digit',month:'short'}); }
+  wzCanNext(){ const w=this.wz,s=w.step; if(s===0) return this.wzNights()>=3; if(s===1) return w.name.trim().length>1 && /.+@.+\..+/.test(w.email); return true; }
+  wzGo(s){ this.wz.step=Math.max(0,Math.min(1,s)); this.wzRender(); }
+  wzNext(){ if(!this.wzCanNext()) return; if(this.wz.step===1){ this.wzSubmit(); return; } this.wzGo(this.wz.step+1); }
+  updateSummary(){ if(this.wz) this.wzSyncBar(); if(this._wzOpen) this.wzRender(); }
+  wzH(eyebrow,title,sub){ return '<div style="font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--lav);font-weight:700">'+eyebrow+'</div><h3 style="font-family:Cormorant,serif;font-weight:600;font-size:27px;line-height:1.1;color:var(--ink);margin:6px 0 2px">'+title+'</h3>'+(sub?'<p style="color:var(--ink2);font-size:14px;line-height:1.5;margin-top:4px">'+sub+'</p>':''); }
+  wzGuide(t){ return '<div style="margin-top:14px;display:flex;align-items:center;gap:9px;padding:10px 14px;border-radius:10px;background:color-mix(in srgb,var(--lav) 12%,transparent);border:1px dashed color-mix(in srgb,var(--lav) 40%,transparent);font-size:13px;font-weight:600;color:var(--lav)"><span style="width:8px;height:8px;flex:0 0 auto;border-radius:50%;background:var(--lav);animation:iwPulseRing 1.8s infinite"></span>'+t+'</div>'; }
+  wzRender(){ const b=this.root.querySelector('[data-wzbody]'); if(!b) return; b.scrollTop=0; const s=this.wz.step; if(s===0)this.wzDates(); else this.wzContact(); b.style.animation='none'; void b.offsetWidth; b.style.animation='iwStepIn .42s cubic-bezier(.22,.61,.36,1)'; this.wzUpdateFooter(); this.wzExplain(); }
+  wzExplain(){
+    const es=this.state.lang==='es'; const s=this.wz.step; const list=this.root.querySelector('[data-wzsteps]'); if(!list) return;
+    const ic={
+      users:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+      cal:'<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+      bed:'<path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8V4a2 2 0 0 1 2-2h4v6"/>',
+      spark:'<path d="M12 3l1.9 4.8L18 9.5l-4.1 1.7L12 16l-1.9-4.8L6 9.5l4.1-1.7z"/>',
+      mail:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/>' };
+    const M=[
+      {i:ic.cal, t:es?'Tus fechas':'Your dates', d:es?'Elige llegada y salida. Mínimo 3 noches (ya preseleccionadas).':'Pick check-in and check-out. 3-night minimum (already preselected).'},
+      {i:ic.mail, t:es?'Tus datos':'Your details', d:es?'Déjanos tu nombre y correo para verificar disponibilidad.':'Leave your name and email to check availability.'}
+    ];
+    list.innerHTML=M.map((m,idx)=>{ const done=idx<s, cur=idx===s; const bd=cur?'var(--brand)':done?'color-mix(in srgb,var(--sage) 55%,transparent)':'var(--line)'; const bg=cur?'var(--surface)':'transparent'; const circleBg=cur?'var(--brand)':done?'var(--sage)':'transparent'; const circleBorder=cur||done?'none':'2px solid var(--line)'; const numColor=cur||done?'#F6F2EC':'var(--ink3)'; const check='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F6F2EC" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>'; const icon='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="'+numColor+'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+m.i+'</svg>'; return '<button '+(done?'data-jump="'+idx+'"':'')+' style="text-align:left;display:flex;gap:13px;align-items:flex-start;padding:'+(cur?'15px 16px':'11px 16px')+';border-radius:14px;border:1.5px solid '+bd+';background:'+bg+';transition:all .35s cubic-bezier(.22,.61,.36,1);'+(done?'cursor:pointer':'cursor:default')+'"><span style="flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:'+circleBg+';border:'+circleBorder+';display:grid;place-items:center">'+(done?check:icon)+'</span><span style="flex:1;min-width:0"><span style="display:block;font-size:14.5px;font-weight:700;color:'+(cur?'var(--ink)':done?'var(--ink2)':'var(--ink3)')+'">'+m.t+'</span>'+(cur?'<span style="display:block;margin-top:4px;font-size:13px;line-height:1.5;color:var(--ink2);animation:iwFade .45s ease">'+m.d+'</span>':'')+'</span></button>'; }).join('');
+    list.querySelectorAll('[data-jump]').forEach(el=>el.addEventListener('click',()=>this.wzGo(parseInt(el.getAttribute('data-jump')))));
+  }
+  wzUpdateFooter(){
+    const w=this.wz, s=w.step;
+    const names=[this.wzT('Fechas','Dates'),this.wzT('Datos','Details')];
+    const bar=this.root.querySelector('[data-wzbar]'); if(bar) bar.style.width=((s+1)/2*100)+'%';
+    const lab=this.root.querySelector('[data-wzsteplabel]'); if(lab) lab.textContent=this.wzT('Paso ','Step ')+(s+1)+'/2 · '+names[s];
+    const back=this.root.querySelector('[data-wzback]'); if(back) back.style.display= s===0?'none':'grid';
+    const nx=this.root.querySelector('[data-wznextlbl]'); if(nx) nx.textContent= s===1? this.wzT('Consultar','Check availability') : this.wzT('Continuar','Continue');
+    const nb=this.root.querySelector('[data-wznext]'); if(nb){ const ok=this.wzCanNext(); nb.style.opacity=ok?'1':'.45'; nb.style.pointerEvents=ok?'auto':'none'; }
+    const foot=this.root.querySelector('[data-wzfoot]'); if(foot) foot.style.display='flex';
+    const sm=this.root.querySelector('[data-wzsummary]');
+    if(sm){ const bits=[]; const n=this.wzNights(); if(n>0) bits.push(n+this.wzT(' noche',' night')+(n>1?'s':'')); if(this.wzTotal()>0) bits.push('· '+this.wzMoney(this.wzTotal())); sm.innerHTML = bits.length? '<b style="color:var(--ink)">'+bits.join(' ')+'</b>' : this.wzT('$0 hoy · consulta sin compromiso','$0 today · check without commitment'); }
+  }
+  wzTravelers(){
+    const b=this.root.querySelector('[data-wzbody]'); const w=this.wz;
+    b.innerHTML=this.wzH(this.wzT('Paso 1 · Viajeros','Step 1 · Travellers'),this.wzT('¿Cuántos viajan?','How many are travelling?'),this.wzT('Recibimos hasta 6 huéspedes por estadía.','We host up to 6 guests per stay.'))+this.wzGuide(this.wzT('Toca + o − para elegir cuántos van','Tap + or − to set how many'))
+      +'<div style="margin-top:22px;display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border:1px solid var(--line);border-radius:16px;background:var(--surface2)">'
+        +'<div><div style="font-size:16px;font-weight:700;color:var(--ink)">'+this.wzT('Personas','People')+'</div><div style="font-size:13px;color:var(--ink3)">'+this.wzT('adultos y niños','adults & children')+'</div></div>'
+        +'<div style="display:flex;align-items:center;gap:16px"><button data-gm style="width:42px;height:42px;border-radius:50%;border:1px solid var(--line);color:var(--brand);font-size:22px;display:grid;place-items:center">−</button><span style="font-family:Cormorant,serif;font-size:26px;color:var(--ink);min-width:26px;text-align:center">'+w.guests+'</span><button data-gp style="width:42px;height:42px;border-radius:50%;border:1px solid var(--line);color:var(--brand);font-size:22px;display:grid;place-items:center">+</button></div>'
+      +'</div>'
+      +'<button data-pet style="margin-top:14px;width:100%;display:flex;align-items:center;gap:13px;padding:16px 20px;border:1px solid '+(w.pet?'var(--brand)':'var(--line)')+';border-radius:16px;background:var(--surface2);text-align:left"><span style="flex:1"><span style="display:block;font-size:15px;font-weight:700;color:var(--ink)">'+this.wzT('Viajo con mascota','Travelling with a pet')+'</span><span style="display:block;font-size:13px;color:var(--ink3)">'+this.wzT('Pet friendly, sin restricciones','Pet friendly, no restrictions')+'</span></span><span style="width:46px;height:26px;border-radius:100px;background:'+(w.pet?'var(--brand)':'var(--line)')+';position:relative;transition:background .25s;flex:0 0 auto"><span style="position:absolute;top:3px;left:'+(w.pet?'23px':'3px')+';width:20px;height:20px;border-radius:50%;background:#fff;transition:left .25s"></span></span></button>';
+    b.querySelector('[data-gm]').addEventListener('click',()=>{ w.guests=Math.max(1,w.guests-1); this.wzRender(); });
+    b.querySelector('[data-gp]').addEventListener('click',()=>{ w.guests=Math.min(6,w.guests+1); this.wzRender(); });
+    b.querySelector('[data-pet]').addEventListener('click',()=>{ w.pet=!w.pet; this.wzRender(); });
+  }
+  wzDates(){
+    const w=this.wz; const b=this.root.querySelector('[data-wzbody]');
+    b.innerHTML=this.wzH(this.wzT('Paso 1 · Fechas','Step 1 · Dates'),this.wzT('¿Cuándo llegas?','When are you arriving?'),this.wzT('Ya te preseleccionamos 3 noches — ajústalas a tu gusto.','We preselected 3 nights for you — adjust them as you like.'))
+      +'<div style="margin-top:18px;display:flex;gap:10px">'
+        +'<div style="flex:1;padding:13px 15px;border:1px solid '+(w.checkin?'var(--brand)':'var(--line)')+';border-radius:12px;background:var(--surface2)'+(!w.checkin?';animation:iwPulseRing 2.2s ease-in-out infinite':'')+'"><div style="font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--lav)">'+this.wzT('LLEGADA','CHECK-IN')+'</div><div style="font-size:15px;font-weight:700;color:var(--ink);margin-top:3px">'+this.wzFmt(w.checkin)+'</div></div>'
+        +'<div style="flex:1;padding:13px 15px;border:1px solid '+(w.checkout?'var(--brand)':'var(--line)')+';border-radius:12px;background:var(--surface2)'+((w.checkin&&!w.checkout)?';animation:iwPulseRing 2.2s ease-in-out infinite':'')+'"><div style="font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--lav)">'+this.wzT('SALIDA','CHECK-OUT')+'</div><div style="font-size:15px;font-weight:700;color:var(--ink);margin-top:3px">'+this.wzFmt(w.checkout)+'</div></div>'
+      +'</div>'
+      +'<div style="margin-top:12px;text-align:center;padding:9px;border-radius:10px;background:color-mix(in srgb,var(--brand) 10%,transparent);border:1px dashed color-mix(in srgb,var(--brand) 45%,transparent);font-size:13px;font-weight:700;color:var(--brand)">'+(!w.checkin?this.wzT('1 · Toca tu día de llegada','1 · Tap your check-in day'):!w.checkout?this.wzT('2 · Ahora toca tu día de salida','2 · Now tap your check-out day'):this.wzT('¡Fechas listas!','Dates ready!'))+'</div>'
+      +'<div data-wzcal style="margin-top:14px;border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--surface2)"></div>'
+      +'<div data-wznights style="margin-top:12px;text-align:center;font-size:13.5px;font-weight:600;color:var(--ink2)"></div>';
+    this.wzCal();
+  }
+  wzCal(){
+    const cal=this.root.querySelector('[data-wzcal]'); if(!cal) return;
+    const w=this.wz; const es=this.state.lang==='es';
+    const base=w.calMonth, y=base.getFullYear(), m=base.getMonth();
+    const first=new Date(y,m,1), start=(first.getDay()+6)%7, days=new Date(y,m+1,0).getDate();
+    const today=new Date(); today.setHours(0,0,0,0);
+    const dn= es?['L','Ma','Mi','J','V','S','D']:['Mo','Tu','We','Th','Fr','Sa','Su'];
+    const mn= base.toLocaleDateString(es?'es-CO':'en-US',{month:'long',year:'numeric'});
+    let h='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><button data-cprev style="width:34px;height:34px;border-radius:50%;border:1px solid var(--line);color:var(--ink2);display:grid;place-items:center;font-size:18px">‹</button><span style="font-size:15px;font-weight:700;color:var(--ink);text-transform:capitalize">'+mn+'</span><button data-cnext style="width:34px;height:34px;border-radius:50%;border:1px solid var(--line);color:var(--ink2);display:grid;place-items:center;font-size:18px">›</button></div>';
+    h+='<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:6px">'+dn.map(d=>'<div style="text-align:center;font-size:11px;font-weight:700;color:var(--ink3)">'+d+'</div>').join('')+'</div>';
+    h+='<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px">';
+    for(let i=0;i<start;i++) h+='<div></div>';
+    for(let d=1;d<=days;d++){ const date=new Date(y,m,d); date.setHours(0,0,0,0); const past=date<today; const isIn=w.checkin&&date.getTime()===w.checkin.getTime(); const isOut=w.checkout&&date.getTime()===w.checkout.getTime(); const inR=w.checkin&&w.checkout&&date>w.checkin&&date<w.checkout; let st='height:40px;border-radius:9px;display:grid;place-items:center;font-size:14px;font-weight:600;'; if(past){ st+='color:var(--ink3);opacity:.4;'; } else if(isIn||isOut){ st+='background:var(--brand);color:#F6F2EC;cursor:pointer;font-weight:800;'; } else if(inR){ st+='background:color-mix(in srgb,var(--brand) 16%,transparent);color:var(--ink);cursor:pointer;'; } else { st+='color:var(--ink);cursor:pointer;'; } h+='<div '+(past?'':'data-cd="'+date.getTime()+'"')+' style="'+st+'">'+d+'</div>'; }
+    h+='</div>';
+    cal.innerHTML=h;
+    cal.querySelector('[data-cprev]').addEventListener('click',()=>{ w.calMonth=new Date(y,m-1,1); this.wzCal(); });
+    cal.querySelector('[data-cnext]').addEventListener('click',()=>{ w.calMonth=new Date(y,m+1,1); this.wzCal(); });
+    cal.querySelectorAll('[data-cd]').forEach(el=>el.addEventListener('click',()=>{ const t=new Date(parseInt(el.getAttribute('data-cd'))); const plus3=new Date(t.getTime()+3*86400000); if(!w.checkin){ w.checkin=t; w.checkout=plus3; w.autoOut=true; } else if(w.autoOut && t>w.checkin){ w.checkout=t; w.autoOut=false; } else { w.checkin=t; w.checkout=plus3; w.autoOut=true; } this.wzRender(); }));
+    const ni=this.root.querySelector('[data-wznights]'); if(ni){ const n=this.wzNights(); ni.textContent = n>0 ? (n+this.wzT(' noche',' night')+(n>1?'s':'')+(n<3?this.wzT(' · mínimo 3 noches',' · 3-night minimum'):'')) : ''; ni.style.color = (n>0&&n<3)?'#B0794C':'var(--ink2)'; }
+  }
+  wzTierStep(){
+    const w=this.wz, es=this.state.lang==='es'; const b=this.root.querySelector('[data-wzbody]');
+    b.innerHTML=this.wzH(this.wzT('Paso 3 · Estadía','Step 3 · Stay'),this.wzT('Elige tu nivel de confort','Choose your comfort level'),this.wzT('Tenemos varias habitaciones. Al confirmar te asignamos la mejor disponible para tus fechas.','We have several rooms. On confirmation we assign the best available one for your dates.'))+this.wzGuide(this.wzT('Elige un nivel — nosotros asignamos la habitación','Pick a level — we assign the room'))+'<div data-tierlist style="margin-top:20px;display:flex;flex-direction:column;gap:12px"></div>';
+    const list=b.querySelector('[data-tierlist]');
+    this.TIERS.forEach(t=>{ const sel=w.tier===t.id; const el=document.createElement('button'); el.style.cssText='display:block;width:100%;text-align:left;padding:18px;border-radius:16px;border:2px solid '+(sel?'var(--brand)':'var(--line)')+';background:'+(sel?'var(--surface2)':'var(--surface)')+';box-shadow:'+(sel?'0 0 0 4px color-mix(in srgb,var(--brand) 12%,transparent)':'none')+';transition:all .2s';
+      el.innerHTML='<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px"><div><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--lav);font-weight:700">'+(es?t.tagEs:t.tagEn)+'</div><div style="font-family:Cormorant,serif;font-size:24px;font-weight:600;color:var(--ink);line-height:1.1;margin-top:2px">'+(es?t.es:t.en)+'</div><div style="font-size:13px;color:var(--ink3);margin-top:3px">'+(es?t.subEs:t.subEn)+'</div></div><div style="text-align:right;flex:0 0 auto"><div style="font-size:20px;font-weight:800;color:var(--ink)">'+this.wzMoney(t.price)+'</div><div style="font-size:11px;color:var(--ink3)">'+this.wzT('/ noche','/ night')+'</div></div></div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px">'+(es?t.fEs:t.fEn).map(ff=>'<span style="padding:5px 10px;border-radius:100px;background:var(--surface);border:1px solid var(--line2);font-size:11.5px;color:var(--ink2);font-weight:500">'+ff+'</span>').join('')+'</div>';
+      el.addEventListener('click',()=>{ w.tier=t.id; this.wzRender(); }); list.appendChild(el); });
+  }
+  wzExtras(){
+    const w=this.wz, es=this.state.lang==='es'; const b=this.root.querySelector('[data-wzbody]');
+    b.innerHTML=this.wzH(this.wzT('Paso 4 · Experiencias','Step 4 · Experiences'),this.wzT('¿Quieres sumar experiencias?','Add extra experiences?'),this.wzT('Opcional. Toca lo que te interese y lo coordinamos a tu llegada.','Optional. Tap what interests you and we arrange it on arrival.'))+'<div data-exlist style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:12px"></div>';
+    const g=b.querySelector('[data-exlist]');
+    this.EXTRAS.forEach(o=>{ const sel=w.extras.includes(o.k); const el=document.createElement('button'); el.style.cssText='display:flex;align-items:center;gap:10px;text-align:left;padding:14px;border-radius:14px;border:2px solid '+(sel?'var(--brand)':'var(--line)')+';background:'+(sel?'var(--surface2)':'var(--surface)')+';transition:all .18s'; el.innerHTML='<span style="flex:1;font-size:13.5px;font-weight:600;color:var(--ink)">'+(es?o.es:o.en)+'</span><span style="width:22px;height:22px;flex:0 0 auto;border-radius:50%;display:grid;place-items:center;background:'+(sel?'var(--brand)':'transparent')+';border:'+(sel?'none':'2px solid var(--line)')+'">'+(sel?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>':'')+'</span>'; el.addEventListener('click',()=>{ w.extras= sel? w.extras.filter(x=>x!==o.k):[...w.extras,o.k]; this.wzRender(); }); g.appendChild(el); });
+  }
+  wzContact(){
+    const w=this.wz, es=this.state.lang==='es'; const n=this.wzNights(); const t=this.wzTier(); const b=this.root.querySelector('[data-wzbody]');
+    const ccOpts=this.CC.map(c=>'<option value="'+c[1]+'"'+(w.cc===c[1]?' selected':'')+'>'+c[0]+' '+c[1]+'</option>').join('');
+    const inp='width:100%;padding:14px 15px;border-radius:11px;border:1px solid var(--line);background:var(--surface2);color:var(--ink);font-size:15px;outline:none';
+    const row=(k,v)=>'<div style="display:flex;justify-content:space-between;gap:12px;padding:5px 0"><span style="font-size:13.5px;color:var(--ink2)">'+k+'</span><span style="font-size:13.5px;font-weight:700;color:var(--ink);text-align:right">'+v+'</span></div>';
+    b.innerHTML=this.wzH(this.wzT('Paso 2 · Datos','Step 2 · Details'),this.wzT('Casi listo','Almost there'),this.wzT('Confirmamos disponibilidad por WhatsApp. $0 hoy.','We confirm availability via WhatsApp. $0 today.'))
+      +'<div style="margin-top:18px;display:flex;flex-direction:column;gap:11px">'
+        +'<input data-fname placeholder="'+this.wzT('Nombre y apellido','Full name')+'" value="'+w.name.replace(/"/g,'&quot;')+'" style="'+inp+'">'
+        +'<input data-femail type="email" placeholder="'+this.wzT('Correo electrónico','Email address')+'" value="'+w.email.replace(/"/g,'&quot;')+'" style="'+inp+'">'
+      +'</div>'
+      +'<div style="margin-top:18px;padding:18px;border-radius:16px;background:var(--surface2);border:1px solid var(--line)">'
+        +'<div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--lav);margin-bottom:12px">'+this.wzT('Resumen','Summary')+'</div>'
+        +row(this.wzT('Fechas','Dates'), this.wzFmt(w.checkin)+' → '+this.wzFmt(w.checkout))
+        +row(this.wzT('Noches','Nights'), String(n))
+        +row((this.wzMoney(t.price)+this.wzT('/noche','/night')+' × '+n), this.wzMoney(this.wzTotal()))
+        +'<div style="height:1px;background:var(--line);margin:12px 0"></div>'
+        +row(this.wzT('Total estadía','Stay total'), this.wzMoney(this.wzTotal()))
+        +'<div style="margin-top:12px;padding:14px 16px;border-radius:13px;background:color-mix(in srgb,var(--brand) 12%,transparent);border:1px solid color-mix(in srgb,var(--brand) 35%,transparent)"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:14px;font-weight:700;color:var(--ink)">'+this.wzT('Abono si confirmas (10%)','Deposit if confirmed (10%)')+'</span><span style="font-family:Cormorant,serif;font-size:28px;font-weight:600;color:var(--brand)">'+this.wzMoney(this.wzDeposit())+'</span></div><div style="margin-top:6px;font-size:12.5px;font-weight:600;color:var(--sage)">'+this.wzT('No pagas nada hasta confirmar disponibilidad','No charges until availability is confirmed')+'</div></div>'
+        +'<div style="margin-top:10px;font-size:12px;color:var(--ink3);line-height:1.5">'+this.wzT('Envía tus datos para consultar disponibilidad y descuentos por WhatsApp. No se hará ningún cobro.','Send your details to check availability and discounts via WhatsApp. No charges will be made now.')+'</div>'
+      +'</div>';
+    const q=(s)=>b.querySelector(s);
+    q('[data-fname]').addEventListener('input',e=>{ w.name=e.target.value; this.wzUpdateFooter(); });
+    q('[data-femail]').addEventListener('input',e=>{ w.email=e.target.value; this.wzUpdateFooter(); });
+  }
+  _tk(k,v){ return '<div><div style="font-size:9px;letter-spacing:.14em;font-weight:700;color:var(--ink3)">'+k+'</div><div style="font-size:14px;font-weight:700;color:var(--ink);margin-top:2px">'+v+'</div></div>'; }
+  wzSubmit(){
+    const w=this.wz, es=this.state.lang==='es'; const n=this.wzNights(); const t=this.wzTier();
+    const code='IW-'+Math.floor(100000+Math.random()*899999);
+    const DIV='━━━━━━━━━━━━━';
+    const msg=[
+      (es?'✨ *Nueva consulta · Ishka Center*':'✨ *New inquiry · Ishka Center*'), DIV,
+      (es?'👤 Nombre: ':'👤 Name: ')+w.name,
+      (w.email? '✉️ Email: '+w.email : ''),
+      (es?'📅 Fechas: ':'📅 Dates: ')+this.wzFmt(w.checkin)+' → '+this.wzFmt(w.checkout)+' ('+n+(es?' noches':' nights')+')',
+      (es?'💰 Total: ':'💰 Total: ')+this.wzMoney(this.wzTotal())+'  ('+this.wzMoney(t.price)+(es?'/noche':'/night')+' × '+n+')',
+      (es?'💵 Abono (10%): ':'💵 Deposit (10%): ')+this.wzMoney(this.wzDeposit())+(es?' · para cuando confirmemos disponibilidad':' · once availability is confirmed'),
+      (es?'🏡 Resto en efectivo al llegar al hospedaje':'🏡 The rest in cash on arrival'),
+      (es?'🎟 Código: ':'🎟 Code: ')+code,
+      '📍 Cra. 129 #25-181, Pance, Cali',
+      (es?'🗺️ Link del mapa: https://share.google/rvVxdXfigj2st9Dn3':'🗺️ Map link: https://share.google/rvVxdXfigj2st9Dn3'), DIV,
+      (es?'🙌 ¡Quiero consultar disponibilidad!':'🙌 I want to check availability!')
+    ].filter(Boolean).join(String.fromCharCode(10));
+    const link='https://api.whatsapp.com/send/?phone='+this.WA+'&text='+encodeURIComponent(msg);
+    const b=this.root.querySelector('[data-wzbody]');
+    b.innerHTML='<div style="text-align:center;padding:6px 0 4px"><div style="width:74px;height:74px;margin:0 auto 14px;border-radius:50%;background:var(--sage);display:grid;place-items:center;animation:iwFloat 3s ease-in-out infinite;box-shadow:0 14px 34px -12px rgba(110,138,99,.6)"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div><h3 style="font-family:Cormorant,serif;font-weight:600;font-size:29px;color:var(--ink)">'+this.wzT('Consulta en proceso','Inquiry in progress')+'</h3><p style="margin-top:6px;color:var(--ink2);font-size:14px;max-width:380px;margin-left:auto;margin-right:auto">'+this.wzT('Envíanos tus datos por WhatsApp. Validaremos la disponibilidad, posibles descuentos, y luego te daremos el link para confirmar.','Send us your details via WhatsApp. We will check availability, possible discounts, and then send the link to confirm.')+'</p></div>'
+      +'<div style="max-width:420px;margin:18px auto 0;border-radius:18px;overflow:hidden;background:var(--surface2);border:1px solid var(--line);box-shadow:var(--shadow)"><div style="position:relative;height:120px;background-image:linear-gradient(180deg,rgba(20,16,10,.15),rgba(20,16,10,.72)),url(assets/img/ck-garden.avif);background-size:cover;background-position:center"><div style="position:absolute;left:16px;bottom:12px"><div style="font-size:10px;letter-spacing:.18em;font-weight:700;color:var(--lav2)">ISHKA CENTER</div><div style="font-family:Cormorant,serif;font-weight:600;font-size:22px;color:#fff;line-height:1">'+(es?t.es:t.en)+'</div></div><span style="position:absolute;top:12px;right:14px;padding:5px 11px;border-radius:100px;background:rgba(255,255,255,.92);font-size:10px;font-weight:700;letter-spacing:.08em;color:#2A2413">E-TICKET</span></div>'
+      +'<div style="padding:16px 18px;display:grid;grid-template-columns:1fr 1fr;gap:12px">'+this._tk(this.wzT('LLEGADA','CHECK-IN'),this.wzFmt(w.checkin))+this._tk(this.wzT('SALIDA','CHECK-OUT'),this.wzFmt(w.checkout))+this._tk(this.wzT('HUÉSPEDES','GUESTS'),String(w.guests))+this._tk(this.wzT('NOCHES','NIGHTS'),String(n))+'</div>'
+      +'<div style="position:relative;height:22px"><div style="position:absolute;top:50%;left:14px;right:14px;border-top:2px dashed var(--line)"></div></div>'
+      +'<div style="padding:4px 18px 16px;display:flex;justify-content:space-between;align-items:flex-end"><div><div style="font-size:9px;letter-spacing:.14em;font-weight:700;color:var(--ink3)">'+this.wzT('CÓDIGO','CODE')+'</div><div style="font-size:13px;font-weight:700;color:var(--ink)">'+code+'</div><div style="font-size:11px;color:var(--ink3);margin-top:6px">'+this.wzT('Total','Total')+': '+this.wzMoney(this.wzTotal())+'</div></div><div style="text-align:right"><div style="font-size:9px;letter-spacing:.14em;font-weight:700;color:var(--ink3)">'+this.wzT('ABONO SUGERIDO','SUGGESTED DEP')+'</div><div style="font-family:Cormorant,serif;font-size:22px;font-weight:600;color:var(--brand)">'+this.wzMoney(this.wzDeposit())+'</div></div></div></div>'
+      +'<div style="max-width:420px;margin:16px auto 0;display:flex;flex-direction:column;gap:10px"><a href="'+link+'" target="_blank" rel="noopener" data-cta style="height:52px;border-radius:100px;background:#25D366;color:#fff;font-size:15px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:9px"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M3 21l1.7-5A8 8 0 1 1 8 19.3zM9 9.5c.5 2 2.5 4 4.5 4.5l1.2-1.4 1.8.8c.2 1.5-1.2 2-2 2-3 0-6.5-3.5-6.5-6.5 0-.8.5-2.2 2-2l.8 1.8z"/></svg>'+this.wzT('Consultar por WhatsApp','Check on WhatsApp')+'</a><button data-wzhome style="height:48px;border-radius:100px;border:1px solid var(--line);color:var(--ink);font-size:14px;font-weight:600">'+this.wzT('Volver al inicio','Back to home')+'</button></div>';
+    const foot=this.root.querySelector('[data-wzfoot]'); if(foot) foot.style.display='none';
+    const back=this.root.querySelector('[data-wzback]'); if(back) back.style.display='none';
+    const bar=this.root.querySelector('[data-wzbar]'); if(bar) bar.style.width='100%';
+    const lab=this.root.querySelector('[data-wzsteplabel]'); if(lab) lab.textContent=this.wzT('Listo','Done');
+    const hb=b.querySelector('[data-wzhome]'); if(hb) hb.addEventListener('click',()=>this.closeResv());
+    try{ window.open(link,'_blank'); }catch(e){}
+  }
+
+  renderMeals(){
+    const es=this.state.lang==='es';
+    const grid=this.root.querySelector('[data-mealgrid]');
+    const rail=this.root.querySelector('[data-mealscroll]');
+    const spans=['grid-column:1;grid-row:1/3','grid-column:2;grid-row:1','grid-column:3;grid-row:1','grid-column:2/4;grid-row:2'];
+    const tile=(m,i,mobile)=>{
+      const base = mobile
+        ? 'flex:0 0 clamp(250px,72vw,320px);aspect-ratio:4/3;scroll-snap-align:center'
+        : (spans[i]||'')+';min-height:'+(i===0?'420px':'200px');
+      return '<div style="position:relative;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);'+base+'">'
+        +'<img src="'+m.img+'" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.22,.61,.36,1)" onmouseover="this.style.transform=\'scale(1.05)\'" onmouseout="this.style.transform=\'none\'">'
+        +'<div style="position:absolute;inset:auto 0 0 0;padding:44px 22px 18px;background:linear-gradient(transparent,rgba(20,16,25,.9))">'
+        +'<div style="font-family:\'Cormorant\',serif;font-size:'+(i===0?'27px':'21px')+';color:#fff">'+(es?m.es:m.en)+'</div>'
+        +'<div style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage2);margin-top:3px">'+(es?m.tagEs:m.tagEn)+'</div>'
+        +'</div></div>';
+    };
+    if(grid){ grid.style.display='grid'; grid.style.gridTemplateColumns='repeat(3,1fr)'; grid.style.gridAutoRows='minmax(200px,auto)'; grid.style.gap='16px'; grid.innerHTML=this.MEALS.map((m,i)=>tile(m,i,false)).join(''); }
+    if(rail){ rail.innerHTML=this.MEALS.map((m,i)=>tile(m,i,true)).join(''); }
+  }
+
+  renderPersonas(){
+    const es=this.state.lang==='es';
+    const grid=this.root.querySelector('[data-personagrid]'); if(!grid) return;
+    grid.innerHTML='';
+    this.PERSONAS.forEach(p=>{
+      const card=document.createElement('div');
+      card.style.cssText='background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .35s ease,box-shadow .35s ease';
+      card.onmouseenter=()=>{ card.style.transform='translateY(-4px)'; const im=card.querySelector('img'); if(im) im.style.transform='scale(1.06)'; };
+      card.onmouseleave=()=>{ card.style.transform='none'; const im=card.querySelector('img'); if(im) im.style.transform='none'; };
+      card.innerHTML=
+        '<div style="position:relative;aspect-ratio:16/10;overflow:hidden">'
+        +'<img src="'+p.img+'" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.22,.61,.36,1)">'
+        +'<div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(20,16,25,.5))"></div>'
+        +'</div>'
+        +'<div style="padding:20px 22px 24px;flex:1">'
+        +'<h3 style="font-family:\'Cormorant\',serif;font-weight:600;font-size:21px;color:var(--ink);line-height:1.2">'+(es?p.es:p.en)+'</h3>'
+        +'<p style="color:var(--ink2);font-size:13.5px;line-height:1.6;margin-top:8px">'+(es?p.dEs:p.dEn)+'</p>'
+        +'</div>';
+      grid.appendChild(card);
+    });
+  }
+
+  setupHostSlider(){
+    const rail=this.root.querySelector('[data-hostrail]'); if(!rail) return;
+    const dotsWrap=this.root.querySelector('[data-hostdots]');
+    const imgs=[...rail.querySelectorAll('img')];
+    dotsWrap.innerHTML='';
+    const dots=imgs.map((_,i)=>{ const d=document.createElement('span'); d.style.cssText='width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.5);transition:all .3s;cursor:pointer'; d.addEventListener('click',()=>rail.scrollTo({left:rail.clientWidth*i,behavior:'smooth'})); dotsWrap.appendChild(d); return d; });
+    const upd=()=>{ const i=Math.round(rail.scrollLeft/rail.clientWidth); dots.forEach((d,j)=>{ d.style.background=j===i?'#fff':'rgba(255,255,255,.5)'; d.style.width=j===i?'22px':'7px'; d.style.borderRadius=j===i?'4px':'50%'; }); };
+    rail.addEventListener('scroll',upd,{passive:true}); upd();
+    const prev=this.root.querySelector('[data-hostprev]'), next=this.root.querySelector('[data-hostnext]');
+    prev&&prev.addEventListener('click',()=>rail.scrollBy({left:-rail.clientWidth,behavior:'smooth'}));
+    next&&next.addEventListener('click',()=>rail.scrollBy({left:rail.clientWidth,behavior:'smooth'}));
+    this._hostAuto=setInterval(()=>{ if(document.hidden) return; const i=Math.round(rail.scrollLeft/rail.clientWidth); const n=(i+1)%imgs.length; rail.scrollTo({left:rail.clientWidth*n,behavior:'smooth'}); },5000);
+    rail.addEventListener('pointerdown',()=>{ clearInterval(this._hostAuto); });
+  }
+
+  enhanceBenefits(){
+    const grid=this.root.querySelector('[data-benefitgrid]'); if(!grid) return;
+    const es=this.state.lang==='es';
+    grid.innerHTML='';
+    this.BENEFITS.forEach(b=>{
+      const card=document.createElement('div');
+      card.style.cssText='position:relative;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .38s cubic-bezier(.22,.61,.36,1),box-shadow .38s ease,border-color .38s ease;box-shadow:0 18px 40px -24px rgba(0,0,0,.7)';
+      card.onmouseenter=()=>{ card.style.transform='translateY(-6px)'; card.style.borderColor='rgba(214,168,74,.55)'; card.style.boxShadow='0 30px 60px -28px rgba(0,0,0,.85)'; const im=card.querySelector('img'); if(im) im.style.transform='scale(1.08)'; };
+      card.onmouseleave=()=>{ card.style.transform='none'; card.style.borderColor='rgba(255,255,255,.1)'; card.style.boxShadow='0 18px 40px -24px rgba(0,0,0,.7)'; const im=card.querySelector('img'); if(im) im.style.transform='none'; };
+      card.innerHTML=
+        '<div style="position:relative;aspect-ratio:16/11;overflow:hidden">'
+        +'<img src="'+b.img+'" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.22,.61,.36,1)">'
+        +'<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,13,.15) 0%,transparent 30%,rgba(20,18,13,.86) 100%)"></div>'
+        +'<div style="position:absolute;left:16px;bottom:-22px;width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,#E6C169,#C6982F);display:grid;place-items:center;box-shadow:0 10px 24px -8px rgba(198,152,47,.7)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2A2413" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+b.ic+'</svg></div>'
+        +'</div>'
+        +'<div style="padding:34px 24px 26px;flex:1">'
+        +'<h3 style="font-family:\'Cormorant\',serif;font-weight:600;font-size:24px;color:#F6EFE2;line-height:1.15">'+(es?b.es:b.en)+'</h3>'
+        +'<p style="color:rgba(246,239,226,.66);font-size:14px;line-height:1.6;margin-top:8px">'+(es?b.dEs:b.dEn)+'</p>'
+        +'</div>';
+      grid.appendChild(card);
+    });
+  }
+
+  enhanceAdditionalServices(){
+    const grid=this.root.querySelector('[data-addgrid]'); if(!grid) return;
+    const es=this.state.lang==='es';
+    grid.innerHTML='';
+    this.ADDITIONAL_SERVICES.forEach(b=>{
+      const card=document.createElement('div');
+      card.style.cssText='position:relative;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .38s cubic-bezier(.22,.61,.36,1),box-shadow .38s ease,border-color .38s ease;box-shadow:0 18px 40px -24px rgba(0,0,0,.7)';
+      card.onmouseenter=()=>{ card.style.transform='translateY(-6px)'; card.style.borderColor='rgba(214,168,74,.55)'; card.style.boxShadow='0 30px 60px -28px rgba(0,0,0,.85)'; const im=card.querySelector('img'); if(im) im.style.transform='scale(1.08)'; };
+      card.onmouseleave=()=>{ card.style.transform='none'; card.style.borderColor='rgba(255,255,255,.1)'; card.style.boxShadow='0 18px 40px -24px rgba(0,0,0,.7)'; const im=card.querySelector('img'); if(im) im.style.transform='none'; };
+      card.innerHTML=
+        '<div style="position:relative;aspect-ratio:16/11;overflow:hidden">'
+        +'<img src="'+b.img+'" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.22,.61,.36,1)">'
+        +'<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,13,.15) 0%,transparent 30%,rgba(20,18,13,.86) 100%)"></div>'
+        +'<div style="position:absolute;left:16px;bottom:-22px;width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,#E6C169,#C6982F);display:grid;place-items:center;box-shadow:0 10px 24px -8px rgba(198,152,47,.7)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2A2413" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+b.ic+'</svg></div>'
+        +'</div>'
+        +'<div style="padding:34px 24px 26px;flex:1">'
+        +'<h3 style="font-family:\'Cormorant\',serif;font-weight:600;font-size:24px;color:#F6EFE2;line-height:1.15">'+(es?b.es:b.en)+'</h3>'
+        +'<p style="color:rgba(246,239,226,.66);font-size:14px;line-height:1.6;margin-top:8px">'+(es?b.dEs:b.dEn)+'</p>'
+        +'</div>';
+      grid.appendChild(card);
+    });
+  }
+
+  setupRipple(){
+    document.addEventListener('pointerdown',(e)=>{
+      const t=e.target.closest && e.target.closest('button, a[data-cta]');
+      if(!t) return;
+      const rect=t.getBoundingClientRect(); if(rect.width<28) return;
+      const cs=getComputedStyle(t);
+      if(cs.position==='static') t.style.position='relative';
+      t.style.overflow='hidden';
+      const rip=document.createElement('span');
+      const size=Math.max(rect.width,rect.height)*2;
+      rip.style.cssText='position:absolute;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%) scale(0);background:rgba(255,255,255,.4);width:'+size+'px;height:'+size+'px;left:'+(e.clientX-rect.left)+'px;top:'+(e.clientY-rect.top)+'px;animation:iwRipple .6s ease-out;z-index:0';
+      t.appendChild(rip);
+      setTimeout(()=>rip.remove(),620);
+    },true);
+  }
+  renderRoomCards(){
+    const grid=this.root.querySelector('[data-roomgrid]'); if(!grid) return;
+    const es=this.state.lang==='es';
+    grid.innerHTML='';
+    this.ROOMS.forEach(r=>{
+      const chips=(es?r.chipsEs:r.chipsEn).map(c=>'<span style="padding:6px 12px;border-radius:100px;background:var(--surface2);border:1px solid var(--line2);font-size:12px;color:var(--ink2);font-weight:500">'+c+'</span>').join('');
+      const card=document.createElement('div');
+      card.style.cssText='background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .35s ease,box-shadow .35s ease';
+      card.onmouseenter=()=>{ card.style.transform='translateY(-4px)'; const im=card.querySelector('img'); if(im) im.style.transform='scale(1.06)'; };
+      card.onmouseleave=()=>{ card.style.transform='none'; const im=card.querySelector('img'); if(im) im.style.transform='none'; };
+      card.innerHTML=
+        '<div style="position:relative;aspect-ratio:4/3;overflow:hidden">'
+        +'<img src="'+r.img+'" alt="'+r.name+'" style="width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.22,.61,.36,1)">'
+        +(r.featured?'<div style="position:absolute;top:14px;left:14px"><span style="padding:6px 12px;border-radius:100px;background:rgba(255,255,255,.94);color:#1c1424;font-size:11px;font-weight:700;letter-spacing:.04em">'+(es?'Favorita de huéspedes':'Guest favourite')+'</span></div>':'')
+        +'<div style="position:absolute;top:14px;right:14px;display:inline-flex;align-items:center;gap:5px;padding:6px 11px;border-radius:100px;background:rgba(255,255,255,.94)"><span style="color:#1c1424;font-size:12px">★</span><span style="color:#1c1424;font-size:12.5px;font-weight:700">'+r.rating+'</span></div>'
+        +'</div>'
+        +'<div style="padding:22px 22px 24px;display:flex;flex-direction:column;flex:1">'
+        +'<div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><h3 style="font-family:\'Cormorant\',serif;font-weight:600;font-size:26px;color:var(--ink);line-height:1.1">'+r.name+'</h3><div style="flex:0 0 auto;text-align:right"><span style="font-size:19px;font-weight:700;color:var(--ink)">$'+r.price+'</span><span style="font-size:12px;color:var(--ink3);display:block;margin-top:-2px">'+(es?'/ noche':'/ night')+'</span></div></div>'
+        +'<div style="font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--lav);font-weight:600;margin-top:3px">'+(es?r.tagEs:r.tagEn)+'</div>'
+        +'<p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-top:12px;flex:1">'+(es?r.descEs:r.descEn)+'</p>'
+        +'<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px">'+chips+'</div>'
+        +'<div style="display:flex;gap:10px;margin-top:20px">'
+        +'<button data-roombtn data-room="'+r.id+'" style="flex:1;padding:13px;border-radius:100px;background:var(--brand);color:#F6F2EC;font-size:13.5px;font-weight:600;transition:transform .25s">'+(es?'Consultar':'Check availability')+'</button>'
+        +'<a href="'+r.airbnb+'" target="_blank" rel="noopener" aria-label="View on Airbnb" style="flex:0 0 auto;width:46px;display:grid;place-items:center;border-radius:100px;border:1px solid var(--line);color:#FF385C"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.6 3.6 4.4 6.4 8 8-3.6 1.6-6.4 4.4-8 8-1.6-3.6-4.4-6.4-8-8 3.6-1.6 6.4-4.4 8-8Z"/></svg></a>'
+        +'</div></div>';
+      const btn=card.querySelector('[data-roombtn]');
+      btn.addEventListener('click',()=>this.openResvRoom(r.id));
+      grid.appendChild(card);
+    });
+  }
+  componentWillUnmount(){ if(this._onScroll) window.removeEventListener('scroll',this._onScroll); if(this._onResize) window.removeEventListener('resize',this._onResize); }
+}
+</script>
+</body>
+</html>
